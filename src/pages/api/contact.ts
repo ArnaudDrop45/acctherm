@@ -51,10 +51,14 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // Determine recipient: contact.drop45@gmail.com in dev, Pierre & Tom in prod
-    const recipient = import.meta.env.DEV
+    // Determine recipient: contact.drop45@gmail.com in dev, Pierre, Tom & Drop45 in prod
+    const rawRecipient = import.meta.env.DEV
       ? "contact.drop45@gmail.com"
-      : (process.env.CONTACT_EMAIL_RECIPIENT || import.meta.env.CONTACT_EMAIL_RECIPIENT || "pierre@acctherm.com, tom@acctherm.com");
+      : (process.env.CONTACT_EMAIL_RECIPIENT || import.meta.env.CONTACT_EMAIL_RECIPIENT || "pierre@acctherm.com, tom@acctherm.com, contact.drop45@gmail.com");
+
+    const recipient = typeof rawRecipient === "string" && rawRecipient.includes(",")
+      ? rawRecipient.split(",").map(email => email.trim())
+      : rawRecipient;
 
     // Use Resend's default domain in dev to allow immediate local testing
     const fromEmail = import.meta.env.DEV
