@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/Contact.astro";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Contactez nos Experts RE2020 & Infiltrométrie | ACCTHERM";
+const pageDescription =
+  "Contactez ACCTHERM pour vos besoins en étanchéité à l'air, infiltrométrie, contrôle VMC et conformité réglementaire RE2020 à Lyon et Rhône-Alpes.";
+
+// Schéma de type "ContactPage" pour le SEO local
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    name: "ACCTHERM",
+    image: "https://acctherm.com/logo.png",
+    telephone: "+33695311758",
+    email: ["tom@acctherm.com", "pierre@acctherm.com"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lyon",
+      addressRegion: "Auvergne-Rhône-Alpes",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "45.764043",
+      longitude: "4.835659",
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+33695311758",
+        contactType: "technical support",
+        name: "Tom Poulanges - Infiltrométrie",
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+33634583303",
+        contactType: "technical support",
+        name: "Pierre Poulanges - Ventilation VMC",
+      },
+    ],
+    areaServed: [
+      "Rhône",
+      "Ain",
+      "Isère",
+      "Loire",
+      "Ardèche",
+      "Drôme",
+      "Savoie",
+      "Haute-Savoie",
+      "Puy-de-Dôme",
+    ],
+  },
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={contactSchema}>
+  <Header />
+
+  <main class="grow bg-[#f8fafc]">
+    <!-- En-tête de la page -->
+    <section
+      class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4 text-center"
+      >
+        <span
+          class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-4"
+        >
+          Contact
+        </span>
+
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6 max-w-3xl mx-auto"
+        >
+          Contactez nos <span class="text-primary-orange"
+            >Experts Thermiques</span
+          >
+        </h1>
+
+        <p
+          class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium"
+        >
+          Une question réglementaire sur la RE2020, un devis ou une
+          demande d'intervention à Lyon et en Auvergne-Rhône-Alpes ? Nos
+          contrôleurs certifiés vous répondent sous 24 heures.
+        </p>
+      </div>
+    </section>
+
+    <!-- Formulaire de contact -->
+    <div class="py-12 md:py-16">
+      <ContactForm />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

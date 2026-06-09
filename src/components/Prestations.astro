@@ -1,0 +1,69 @@
+---
+import PrestationCards from './PrestationCards.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="prestations" class="px-4 sm:px-6 lg:px-8 pb-16 pt-12 max-w-7xl mx-auto">
+  <div class="mb-10 pb-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center items-start gap-3 md:gap-4">
+    <span class="bg-orange-50 text-primary-orange text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border border-orange-100">
+      RE2020 & RT2012
+    </span>
+    <h2 class="text-xl md:text-2xl font-black font-display text-primary-navy uppercase tracking-tight">
+      Nos Prestations Techniques
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-12 items-start">
+    
+    <!-- Colonne Gauche : Argumentaire + Bouton vers la page Hub -->
+    <div class="lg:col-span-3 lg:sticky lg:top-32 flex flex-col justify-between">
+      <div>
+        <span class="inline-block text-xs font-bold text-primary-orange uppercase tracking-widest mb-3">
+          Contrôle Thermique & RE2020 Lyon
+        </span>
+        <h3 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy mb-6 leading-tight">
+          Garantissez la conformité de votre maison individuelle
+        </h3>
+        
+        <div class="text-base leading-relaxed text-slate-600 font-medium space-y-4 mb-8">
+          <p>
+            La conformité réglementaire d'un projet de construction ou de rénovation ne s'improvise pas. Chez <strong class="text-primary-navy font-semibold">ACCTHERM</strong>, nous transformons les obligations de la <strong class="text-primary-orange font-semibold">RE2020</strong> et de la RT2012 en leviers de valorisation.
+          </p>
+          <p>
+            Spécialisés exclusivement dans la <strong class="text-primary-navy font-semibold">maison individuelle à Lyon</strong> et en région Auvergne-Rhône-Alpes, nous intervenons à chaque étape clé pour traquer les ponts thermiques et mesurer la perméabilité à l'air.
+          </p>
+          <p>
+            Notre approche repose sur des équipements de pointe : test d'infiltrométrie par <strong class="text-slate-700 font-semibold">porte soufflante (blowerdoor)</strong>, recherche de fuites par générateur de fumée et contrôle VMC strict selon le <strong class="text-slate-700 font-semibold">protocole Promevent</strong>.
+          </p>
+        </div>
+
+        <!-- Nouveau Bouton d'accès au catalogue complet -->
+        <div class="pt-2">
+          <a 
+            href="/prestations" 
+            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-primary-navy hover:bg-primary-navy/90 text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all shadow-md group"
+          >
+            Voir toutes nos prestations
+            <Icon name="lucide:arrow-right" class="w-4 h-4 text-primary-orange transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+      
+      <div class="hidden lg:block mt-12 border-t border-slate-200/60 pt-4">
+        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest italic">
+          💡 Cliquez sur une prestation pour obtenir un devis personnalisé
+        </p>
+      </div>
+    </div>
+    
+    <!-- Colonne Droite : Cartes de prestations -->
+    <div class="lg:col-span-5 w-full">
+      <PrestationCards />
+      
+      <p class="block lg:hidden text-xs text-slate-400 font-bold uppercase tracking-widest text-center italic mt-6">
+        Cliquez sur une prestation pour obtenir un devis personnalisé
+      </p>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,359 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="contact"
+  class="px-4 sm:px-6 lg:px-8 pb-12 max-w-7xl mx-auto w-full"
+>
+  <div
+    class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-2"
+  >
+    <!-- Colonne de Gauche : Texte et Réassurance -->
+    <div
+      class="bg-slate-50 p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between"
+    >
+      <div>
+        <div
+          class="inline-flex items-center gap-2 bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-orange opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-primary-orange"
+            ></span>
+          </span>
+          Réponse sous 24h maximum
+        </div>
+
+        <h2
+          class="text-2xl md:text-4xl font-extrabold font-display text-primary-navy mb-6 leading-tight"
+        >
+          Prêt à valider votre <span class="text-primary-orange"
+            >conformité ?</span
+          >
+        </h2>
+
+        <p class="text-base text-slate-600 mb-10 leading-relaxed font-medium">
+          Besoin d'un test d'infiltrométrie, d'un contrôle VMC ou d'un conseil
+          sur la RE2020 ? Remplissez ce formulaire et nos experts Tom ou Pierre
+          vous rappelleront pour une étude personnalisée de votre projet.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div
+            class="bg-white p-3 rounded-xl border border-slate-200 text-primary-orange shadow-sm shrink-0"
+          >
+            <Icon name="lucide:phone-call" class="w-5 h-5" />
+          </div>
+          <div>
+            <p
+              class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+            >
+              Lignes directes experts
+            </p>
+            <div class="space-y-0.5">
+              <p
+                class="text-base font-bold text-primary-navy flex items-center gap-2"
+              >
+                <span class="text-xs font-medium text-slate-500 w-12"
+                  >Tom :</span
+                >
+                <a
+                  href="tel:0695311758"
+                  class="hover:text-primary-orange transition-colors"
+                  >06.95.31.17.58</a
+                >
+              </p>
+              <p
+                class="text-base font-bold text-primary-navy flex items-center gap-2"
+              >
+                <span class="text-xs font-medium text-slate-500 w-12"
+                  >Pierre :</span
+                >
+                <a
+                  href="tel:0634583303"
+                  class="hover:text-primary-orange transition-colors"
+                  >06.34.58.33.03</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div
+            class="bg-white p-3 rounded-xl border border-slate-200 text-primary-orange shadow-sm shrink-0"
+          >
+            <Icon name="lucide:mail" class="w-5 h-5" />
+          </div>
+          <div>
+            <p
+              class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+            >
+              Emails professionnels
+            </p>
+            <div class="flex flex-col gap-1">
+              <a
+                href="mailto:tom@acctherm.com"
+                class="text-base font-bold text-primary-navy hover:text-primary-orange transition-colors"
+              >
+                tom@acctherm.com
+              </a>
+              <a
+                href="mailto:pierre@acctherm.com"
+                class="text-base font-bold text-primary-navy hover:text-primary-orange transition-colors"
+              >
+                pierre@acctherm.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonne de Droite : Formulaire -->
+    <div class="p-8 md:p-12 flex flex-col justify-center relative">
+      <div id="form-success" class="hidden bg-green-50 border border-green-200 text-green-800 p-4 rounded-xl mb-6 text-sm font-medium">
+        Votre demande a bien été envoyée ! Tom ou Pierre vous recontactera sous 24h.
+      </div>
+
+      <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-800 p-4 rounded-xl mb-6 text-sm font-medium">
+        Une erreur est survenue. Veuillez vérifier les champs en rouge.
+      </div>
+
+      <form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-opacity duration-300">
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Laissez ce champ vide</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label
+            for="name"
+            class="text-xs font-bold text-slate-500 uppercase ml-1"
+          >
+            Nom ou Entreprise
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Ex: Jean Dupont"
+            class="form-input bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-orange/20 focus:border-primary-orange transition-all"
+          />
+          <span class="text-red-500 text-xs hidden error-msg" id="error-name"></span>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label
+            for="phone"
+            class="text-xs font-bold text-slate-500 uppercase ml-1"
+          >
+            Téléphone
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="06 .. .. .. .."
+            class="form-input bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-orange/20 focus:border-primary-orange transition-all"
+          />
+          <span class="text-red-500 text-xs hidden error-msg" id="error-phone"></span>
+        </div>
+
+        <div class="flex flex-col gap-1.5 sm:col-span-2">
+          <label
+            for="email"
+            class="text-xs font-bold text-slate-500 uppercase ml-1"
+          >
+            Adresse Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="votre@email.fr"
+            class="form-input bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-orange/20 focus:border-primary-orange transition-all"
+          />
+          <span class="text-red-500 text-xs hidden error-msg" id="error-email"></span>
+        </div>
+
+        <div class="flex flex-col gap-1.5 sm:col-span-2">
+          <label
+            for="service"
+            class="text-xs font-bold text-slate-500 uppercase ml-1"
+          >
+            Type de projet
+          </label>
+          <div class="relative flex items-center">
+            <select
+              id="service"
+              name="service"
+              required
+              class="form-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-orange/20 focus:border-primary-orange transition-all appearance-none cursor-pointer pr-10"
+            >
+              <option value="">Sélectionnez un service</option>
+              <option value="Test d'Infiltrométrie Intermédiaire">
+                Test d'Infiltrométrie Intermédiaire
+              </option>
+              <option value="Infiltrométrie Finale Obligatoire">
+                Infiltrométrie Finale Obligatoire
+              </option>
+              <option value="Contrôle Obligatoire Systèmes VMC">
+                Contrôle Obligatoire Systèmes VMC
+              </option>
+              <option value="Attestations de Fin de Chantier RE2020">
+                Attestations de Fin de Chantier RE2020
+              </option>
+              <option value="DPE Neuf (Performance Énergétique)">
+                DPE Neuf (Performance Énergétique)
+              </option>
+              <option value="Formations ou Conseils">
+                Formations ou Conseils
+              </option>
+            </select>
+            <Icon
+              name="lucide:chevron-down"
+              class="w-4 h-4 text-slate-400 absolute right-4 pointer-events-none"
+            />
+          </div>
+          <span class="text-red-500 text-xs hidden error-msg" id="error-service"></span>
+        </div>
+
+        <div class="flex flex-col gap-1.5 sm:col-span-2">
+          <label
+            for="message"
+            class="text-xs font-bold text-slate-500 uppercase ml-1"
+          >
+            Détails du projet
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Adresse du chantier, surface, urgence..."
+            class="form-input bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-orange/20 focus:border-primary-orange transition-all resize-none"
+          />
+          <span class="text-red-500 text-xs hidden error-msg" id="error-message"></span>
+        </div>
+
+        <button
+          type="submit"
+          id="submit-btn"
+          class="sm:col-span-2 bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200/50 mt-2 flex items-center justify-center gap-2 group cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+        >
+          <span id="submit-text">Envoyer ma demande de devis</span>
+          <Icon
+            id="submit-icon"
+            name="lucide:send"
+            class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+          />
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const submitText = document.getElementById("submit-text");
+  const formSuccess = document.getElementById("form-success");
+  const formError = document.getElementById("form-error");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Reset UI state
+      formSuccess?.classList.add("hidden");
+      formError?.classList.add("hidden");
+      
+      const inputs = form.querySelectorAll(".form-input");
+      inputs.forEach(input => {
+        input.classList.remove("border-red-500", "focus:ring-red-200", "focus:border-red-500");
+        input.classList.add("border-slate-200", "focus:ring-primary-orange/20", "focus:border-primary-orange");
+      });
+
+      const errorMsgs = form.querySelectorAll(".error-msg");
+      errorMsgs.forEach(msg => {
+        msg.classList.add("hidden");
+        msg.textContent = "";
+      });
+
+      // UI Loading state
+      submitBtn.disabled = true;
+      if (submitText) submitText.textContent = "Envoi en cours...";
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Success
+          form.reset();
+          form.classList.add("hidden"); // Hide form after success
+          formSuccess?.classList.remove("hidden");
+        } else {
+          // Validation error or server error
+          formError?.classList.remove("hidden");
+          if (result.message) {
+            formError!.textContent = result.message;
+          } else {
+            formError!.textContent = "Veuillez corriger les erreurs ci-dessous.";
+          }
+
+          if (result.errors) {
+            // Field-specific errors
+            Object.keys(result.errors).forEach(field => {
+              const inputElement = document.getElementById(field);
+              const errorElement = document.getElementById(`error-${field}`);
+              
+              if (inputElement) {
+                inputElement.classList.remove("border-slate-200", "focus:ring-primary-orange/20", "focus:border-primary-orange");
+                inputElement.classList.add("border-red-500", "focus:ring-red-200", "focus:border-red-500");
+              }
+              
+              if (errorElement) {
+                errorElement.textContent = result.errors[field][0];
+                errorElement.classList.remove("hidden");
+              }
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Erreur de soumission:", error);
+        formError?.classList.remove("hidden");
+        formError!.textContent = "Une erreur inattendue est survenue. Veuillez réessayer.";
+      } finally {
+        // Reset loading state
+        submitBtn.disabled = false;
+        if (submitText) submitText.textContent = "Envoyer ma demande de devis";
+      }
+    });
+  }
+</script>

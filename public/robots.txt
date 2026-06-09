@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+
+# Autoriser tous les robots d'indexation (Google, Bing, DuckDuckGo, etc.) à explorer le site
+User-agent: *
+Allow: /
+
+# Emplacement exact de votre plan de site généré par Astro
+Sitemap: https://acctherm.com/sitemap-index.xml

@@ -1,0 +1,236 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FAQ from "../../components/FAQ.astro";
+import Contact from "../../components/Contact.astro";
+import { Icon } from 'astro-icon/components';
+
+// Métadonnées SEO 
+const pageTitle = "Infiltrométrie Finale & Attestation RE2020 Lyon | Cerfa Fin de Chantier";
+const pageDescription = "Test de perméabilité à l'air final obligatoire à Lyon et Rhône-Alpes. Obtenez votre attestation Cerfa RE2020 sous 24h pour valider votre fin de travaux.";
+
+// Schéma 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Test d'infiltrométrie final obligatoire RE2020",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://acctherm.com/#localbusiness"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Auvergne-Rhône-Alpes",
+        "sameAs": "https://www.wikidata.org/wiki/Q18247094"
+      },
+      "description": "Mesure réglementaire de perméabilité à l'air finale par porte soufflante pour la délivrance du rapport officiel Qualibat et de l'attestation Cerfa de fin de travaux."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://acctherm.com" },
+        { "@type": "ListItem", "position": 2, "name": "Prestations", "item": "https://acctherm.com/prestations" },
+        { "@type": "ListItem", "position": 3, "name": "Infiltrométrie Finale", "item": "https://acctherm.com/prestations/infiltrometrie-finale" }
+      ]
+    }
+  ]
+};
+
+// FAQs 
+const infiltroFinalFaqs = [
+  {
+    question: "Le test d'infiltrométrie final est-il obligatoire pour valider mon permis de construire ?",
+    answer: "Oui, l'infiltrométrie finale est une obligation légale stricte pour toutes les constructions neuves soumises à la RE2020 (et la RT2012) ainsi que pour certaines extensions de grande surface. Sans le rapport officiel généré par un opérateur agréé par l'État, il est impossible de générer l'attestation de fin de chantier (Cerfa), ce qui bloque la validation de votre DAACT en mairie."
+  },
+  {
+    question: "Quelles sont les conditions pour que le bâtiment soit prêt pour le test final ?",
+    answer: "La maison doit être totalement achevée. Concrètement, tous les réseaux doivent être finalisés (prises électriques posées, plomberie raccordée), les rooftops et revêtements de sols terminés, les siphons remplis d'eau, et les menuiseries intérieures/extérieures opérationnelles. Les bouches de VMC doivent être présentes, mais nous nous chargeons de les obturer temporairement le temps de la mesure."
+  },
+  {
+    question: "Combien de temps faut-il pour recevoir l'attestation Cerfa après votre passage ?",
+    answer: "Chez ACCTHERM, nous connaissons les impératifs de planning et de livraison. C'est pourquoi nous nous engageons à traiter vos données et à vous envoyer le rapport d'essais officiel Qualibat ainsi que l'attestation de conformité RE2020 par email sous 24 heures maximum après notre intervention sur site à Lyon ou en Rhône-Alpes."
+  },
+  {
+    question: "Que se passe-t-il si la maison ne respecte pas le seuil réglementaire de la RE2020 ?",
+    answer: "Si le résultat du test (coefficient Q4Pa-surf) dépasse le seuil maximal autorisé (0,60 m³/(h.m²) en maison individuelle), la conformité est refusée. Notre technicien utilise alors instantanément nos outils de diagnostic (fumigènes, caméras thermiques) pour identifier les fuites responsables. Un rapport détaillé vous est remis pour guider vos artisans vers les réparations indispensables avant de planifier une contre-visite."
+  },
+  {
+    question: "Mon permis de construire a été déposé sous la RT2012. Réalisez-vous toujours ces tests ?",
+    answer: "Absolument. Bien que la RE2020 soit la norme en vigueur pour les constructions neuves actuelles, ACCTHERM continue de réaliser les tests d'infiltrométrie finale sous la norme RT2012 pour tous les projets retardataires, les extensions ou en cas de régularisation de dossiers administratifs."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={serviceSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO SECTION : Focus Urgence Administrative & Clé-en-main -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-16 pb-16">
+      <!-- FIX: Remplacement de bg-size par la propriété brute [background-size:16px_16px] pour Tailwind -->
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- BREADCRUMB -->
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6">
+          <a href="/" class="hover:text-primary-orange transition-colors flex items-center gap-1">Accueil</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <a href="/prestations" class="hover:text-primary-orange transition-colors">Prestations</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <span class="text-slate-600" aria-current="page">Infiltrométrie Finale</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 text-left">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
+              Contrôle Réglementaire Obligatoire • Certification Qualibat
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-[1.1] mb-6 tracking-tight">
+              Infiltrométrie Finale & Attestation RE2020 <span class="text-primary-orange">à Lyon</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl">
+              Validez la conformité légale de votre bâtiment sans perdre une seule journée. Notre mesure de <strong class="text-primary-navy font-bold">perméabilité à l'air finale obligatoire</strong> vous garantit un rapport conforme et la délivrance de votre attestation Cerfa de fin de travaux sous 24h pour un dépôt serein en mairie.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" class="bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer flex items-center justify-center gap-2">
+                <Icon name="lucide:calendar" class="w-4 h-4" /> Réserver mon test final
+              </a>
+              <a href="#obligations" class="border-2 border-primary-navy text-primary-navy font-bold py-4 px-8 rounded-xl text-sm hover:bg-primary-navy hover:text-white transition-all text-center cursor-pointer">
+                Déroulement & Obligations
+              </a>
+            </div>
+          </div>
+          
+          <!-- Encart de rassurance administrative à droite -->
+          <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-sm font-bold text-primary-navy uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Icon name="lucide:file-check" class="text-primary-orange w-4 h-4" /> Documents Livrés sous 24h
+            </h3>
+            <ul class="space-y-3.5 text-xs md:text-sm font-semibold text-slate-600">
+              <li class="flex items-center gap-3 py-1.5 border-b border-slate-200/60">
+                <Icon name="lucide:check-circle" class="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>Rapport officiel d’essai d’infiltrométrie</span>
+              </li>
+              <li class="flex items-center gap-3 py-1.5 border-b border-slate-200/60">
+                <Icon name="lucide:check-circle" class="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>Génération du XML d'étanchéité réglementaire</span>
+              </li>
+              <li class="flex items-center gap-3 py-1.5 border-b border-slate-200/60">
+                <Icon name="lucide:check-circle" class="w-4 h-4 text-emerald-500 shrink-0" />
+                <span class="text-primary-navy">Attestation finale de conformité Cerfa</span>
+              </li>
+              <li class="flex items-center gap-3 py-1.5">
+                <Icon name="lucide:shield" class="w-4 h-4 text-primary-orange shrink-0" />
+                <span class="text-slate-500">Agrément d'État Qualibat 8711</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION COPYWRITING : Pourquoi choisir ACCTHERM pour sa fin de chantier -->
+    <section id="obligations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight">
+          Un contrôle réglementaire sans faille pour votre DAACT
+        </h2>
+        <p class="text-sm md:text-base text-slate-500 font-medium mt-3">
+          La fin de chantier est une période stressante. ACCTHERM s'occupe de valider l'étanchéité de votre enveloppe avec une rigueur juridique totale.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Rassurance 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:award" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">100% Conforme & Agréé</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Nos mesures par infiltrométrie finale sont certifiées par notre qualification Qualibat 8711. C'est l'assurance absolue que vos documents seront validés par les services d'urbanisme de votre mairie.
+          </p>
+        </div>
+
+        <!-- Rassurance 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:zap" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Rapidité d'exécution locale</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Basés à Lyon, nous intervenons rapidement sur toute la région Auvergne-Rhône-Alpes. Pas d'attente interminable : l'édition de vos rapports réglementaires se fait dans les 24h suivant le test.
+          </p>
+        </div>
+
+        <!-- Rassurance 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:eye" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Pédagogie en cas de non-conformité</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Si le seuil de perméabilité RE2020 n'est pas atteint, nous ne vous laissons pas tomber. Nous localisons instantanément les fuites d'air défectueuses pour vous permettre de réaliser des correctifs précis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION CHECKLIST : Comment bien préparer le bâtiment -->
+    <section class="w-full bg-white border-y border-slate-100 py-16 mb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5 text-left">
+            <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Éviter la contre-visite</span>
+            <h2 class="text-2xl md:text-3xl font-black font-display text-primary-navy uppercase tracking-tight mb-6">
+              Checklist de préparation <br class="hidden md:inline"/>pour votre test final
+            </h2>
+            <p class="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-6">
+              Pour assurer la réussite de la mesure par porte soufflante du premier coup, veillez à ce que les éléments techniques soient correctement configurés avant l'arrivée de Tom ou Pierre sur le chantier.
+            </p>
+            <div class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <Icon name="lucide:info" class="w-4 h-4 text-primary-orange" /> Un test bien préparé = Un Cerfa délivré immédiatement
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8">
+            <ul class="space-y-4 text-sm font-semibold text-slate-700">
+              <li class="flex items-start gap-3">
+                <Icon name="lucide:check-square" class="w-5 h-5 text-primary-orange shrink-0 mt-0.5" />
+                <span><strong>Menuiseries terminées :</strong> Toutes les fenêtres, portes et baies vitrées doivent être posées, réglées et munies de leurs joints d'étanchéité opérationnels.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="lucide:check-square" class="w-5 h-5 text-primary-orange shrink-0 mt-0.5" />
+                <span><strong>Réseaux étanches :</strong> Les fourreaux électriques doivent être étanchéifiés (présence des appareillages), et les siphons de plomberie remplis d'eau.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="lucide:check-square" class="w-5 h-5 text-primary-orange shrink-0 mt-0.5" />
+                <span><strong>Accès à l'énergie :</strong> Le chantier doit idéalement être alimenté en électricité 230V pour permettre le fonctionnement de la turbine de la porte soufflante.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="lucide:check-square" class="w-5 h-5 text-primary-orange shrink-0 mt-0.5" />
+                <span><strong>Étude thermique disponible :</strong> Pensez à fournir le fichier d'étude thermique (.xml) en amont pour encoder les surfaces de parois froides exactes.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ SPÉCIFIQUE  -->
+    <FAQ title="Des réponses techniques pour sécuriser votre attestation de fin de chantier" faqs={infiltroFinalFaqs} />
+
+    <!-- 5. CONTACT -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

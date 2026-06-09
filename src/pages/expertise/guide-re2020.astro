@@ -1,0 +1,292 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro"; 
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Guide Complet RE2020 : Exigences thermiques et environnementales | ACCTHERM";
+const pageDescription = "Dossier technique complet sur la Réglementation Environnementale 2020 (RE2020) : indicateurs, impact carbone, confort d'été, cadre légal et obligations de tests.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://acctherm.com/expertise/guide-re2020/#article",
+  "headline": "Guide Complet de la Réglementation RE2020",
+  "description": pageDescription,
+  "author": {
+    "@type": "Organization",
+    "name": "ACCTHERM"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ACCTHERM",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acctherm.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acctherm.com/expertise/guide-re2020"
+  }
+};
+
+const pillars = [
+  {
+    title: "Sobriété Énergétique",
+    desc: "Réduction des besoins en énergie (chauffage, refroidissement, éclairage) grâce à une isolation ultra-performante et une conception bioclimatique optimisée.",
+    icon: "lucide:home"
+  },
+  {
+    title: "Impact Carbone Réduit",
+    desc: "Analyse du cycle de vie (ACV) des matériaux de construction. Privilégier les matériaux biosourcés et les énergies décarbonées.",
+    icon: "lucide:leaf"
+  },
+  {
+    title: "Confort d'Été",
+    desc: "Garantir des logements frais en cas de canicule sans recourir systématiquement à la climatisation, via un nouvel indicateur (DH).",
+    icon: "lucide:sun"
+  }
+];
+
+const indicators = [
+  { name: "Bbio", desc: "Besoin Bioclimatique (isolation, orientation)." },
+  { name: "Cep & Cep,nr", desc: "Consommation en Énergie Primaire (totale et non renouvelable)." },
+  { name: "Ic énergie", desc: "Impact carbone lié aux consommations d'énergie pendant 50 ans." },
+  { name: "Ic construction", desc: "Impact carbone lié aux matériaux de construction." },
+  { name: "Degrés-Heures (DH)", desc: "Indicateur évaluant l'inconfort estival." }
+];
+
+// Données FAQ
+const re2020Faqs = [
+  { 
+    question: "Le test d'étanchéité à l'air est-il obligatoire pour toutes les constructions neuves ?", 
+    answer: "Oui, le test d'infiltrométrie final est strictement obligatoire pour la réception des maisons individuelles et des logements collectifs soumis à la RE2020. Sans validation de ce test par un opérateur certifié, l'attestation de conformité de fin de chantier ne peut pas être délivrée." 
+  },
+  { 
+    question: "Que se passe-t-il si mon chantier ne respecte pas le seuil réglementaire (ex: 0.60) ?", 
+    answer: "Nous saurons détecter les fuites et vous orienter afin de résoudre le plus simplement possible vos problèmes d’étanchéité, dans le but d’obtenir un meilleur résultat lors d’un nouveau test." 
+  },
+  { 
+    question: "Quelle est la grande nouveauté de la RE2020 concernant la VMC ?", 
+    answer: "Contrairement à la RT2012, la RE2020 impose désormais un contrôle obligatoire des systèmes de ventilation résidentiels. Il ne s'agit plus seulement de vérifier la présence des équipements, mais de réaliser des mesures de pression et de débit aux bouches d'extraction selon le protocole officiel (Promevent)." 
+  },
+  {
+    question: "Comment savoir si mon projet dépend de la RT2012 ou de la RE2020 ?",
+    answer: "C'est la date de dépôt de votre permis de construire qui détermine la réglementation applicable. Si le dépôt a eu lieu avant le 1er janvier 2022, votre projet reste soumis à la RT2012. En cas de doute, d'erreur sur votre dépôt, ou si vous avez du retard sur votre chantier, les experts d'ACCTHERM vous aident à identifier la bonne réglementation et adaptent les contrôles en conséquence."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- En-tête de l'article -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a href="/expertise" class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group">
+          <Icon name="lucide:arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg">
+              Dossier Technique
+            </span>
+            <span class="text-sm font-medium text-slate-400">Temps de lecture : 7 min</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6">
+            Guide Complet de la <span class="text-primary-orange">Réglementation RE2020</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4">
+            Remplaçant la RT2012 depuis le 1er janvier 2022, la RE2020 marque un tournant majeur pour la construction neuve en France. Découvrez comment elle redéfinit les standards de performance énergétique et environnementale.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6">
+          De la thermique à l'environnemental
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          L'objectif de la RE2020 n'est plus seulement de construire des bâtiments qui consomment peu d'énergie, mais de construire des bâtiments <strong>qui émettent peu de carbone</strong> tout au long de leur cycle de vie, de l'extraction des matériaux jusqu'à leur démolition.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Pour les maîtres d'ouvrage et les constructeurs, cela implique des choix techniques décisifs dès la phase de conception (isolation, mode de chauffage, matériaux biosourcés).
+        </p>
+      </div>
+
+      <!-- Les 3 Piliers -->
+      <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+        Les 3 piliers fondateurs de la RE2020
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {pillars.map((pillar) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+            <div class="bg-orange-100 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+              <Icon name={pillar.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+              {pillar.title}
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+              {pillar.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Les Indicateurs Clés -->
+      <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3">
+          <Icon name="lucide:check-circle" class="w-6 h-6 text-primary-orange" />
+          Les 5 indicateurs à respecter
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {indicators.map((ind) => (
+            <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm min-h-[72px]">
+              <div class="text-primary-navy font-black text-lg min-w-[120px] md:min-w-[140px] shrink-0 leading-none">
+                {ind.name}
+              </div>
+              <div class="text-slate-600 font-medium text-sm md:text-base leading-snug">
+                {ind.desc}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Cadre Légal & Seuils Techniques -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          Cadre Légal & Seuils de Perméabilité
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Bâtiments concernés -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-primary-navy mb-4 border-b border-slate-100 pb-4">À qui s'applique la RE2020 ?</h3>
+            <ul class="space-y-3 text-slate-600 font-medium">
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0"></div>
+                Maisons individuelles (depuis le 01/01/2022)
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0"></div>
+                Logements collectifs (depuis le 01/01/2022)
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0"></div>
+                Bureaux et Enseignement (depuis le 01/07/2022)
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0"></div>
+                Extensions de plus de 50m² (depuis le 01/01/2023)
+              </li>
+            </ul>
+          </div>
+
+          <!-- Seuils d'étanchéité -->
+          <div class="bg-slate-800 text-slate-600 p-8 rounded-2xl shadow-sm relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 w-32 h-32 bg-slate-700 rounded-full opacity-50 pointer-events-none"></div>
+            <h3 class="text-xl font-bold mb-4 relative z-10 border-b border-slate-600 pb-4">Seuils réglementaires (Infiltrométrie)</h3>
+            <p class="text-slate-600 text-sm mb-4 relative z-10">L'indicateur Q4Pa-surf (débit de fuite par m² de parois déperditives) ne doit pas dépasser :</p>
+            <div class="space-y-4 relative z-10">
+              <div class="flex justify-between items-center bg-slate-700/50 p-3 rounded-lg border border-slate-200">
+                <span class="font-medium">Maison Individuelle</span>
+                <span class="font-black text-primary-orange">0.60 m³/(h.m²)</span>
+              </div>
+              <div class="flex justify-between items-center bg-slate-700/50 p-3 rounded-lg border border-slate-200">
+                <span class="font-medium">Logement Collectif</span>
+                <span class="font-black text-primary-orange">1.00 m³/(h.m²)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schéma : Le cycle de la conformité -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          Le processus de conformité étape par étape
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+          
+          <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3">1</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Dépôt du Permis</h4>
+            <p class="text-xs text-slate-500">Attestation Bbio et étude thermique préalable.</p>
+          </div>
+          
+          <div class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3">2</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Cours de Chantier</h4>
+            <p class="text-xs text-slate-500">Test d'infiltrométrie intermédiaire (fortement recommandé).</p>
+          </div>
+          
+          <div class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md">
+            <div class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3">3</div>
+            <h4 class="font-bold text-white text-sm mb-2">Réception (Tests)</h4>
+            <p class="text-xs text-slate-300">Test d'étanchéité final + Contrôle Ventilation (Promevent).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Enjeu ACCTHERM -->
+      <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-5xl">
+          <h2 class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+            <Icon name="lucide:alert-triangle" class="w-6 h-6 text-primary-orange" />
+            L'impact sur l'Étanchéité et la Ventilation
+          </h2>
+          <p class="text-slate-300 leading-relaxed mb-6 font-medium">
+            La RE2020 a drastiquement renforcé les contrôles en fin de chantier. Pour obtenir l'attestation de conformité, deux validations sont devenues des points de passage obligatoires :
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="mt-1 bg-primary-orange/20 text-primary-orange p-1 rounded-full shrink-0">
+                <Icon name="lucide:check-circle" class="w-4 h-4" />
+              </div>
+              <p class="text-slate-200"><strong class="text-white">Test d'infiltrométrie (Q4Pa-surf) :</strong> L'étanchéité à l'air de l'enveloppe doit respecter des seuils stricts (ex: 0.60 en maison individuelle) pour limiter les déperditions thermiques.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="mt-1 bg-primary-orange/20 text-primary-orange p-1 rounded-full shrink-0">
+                <Icon name="lucide:check-circle" class="w-4 h-4" />
+              </div>
+              <p class="text-slate-200"><strong class="text-white">Protocole RE2020 Ventilation :</strong> Vérification systématique des débits, des bouches et des réseaux de VMC (mesures de pression et de débit) pour garantir la Qualité de l'Air Intérieur.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ title="Questions fréquentes sur la RE2020" faqs={re2020Faqs} />
+
+    <!-- Contact Section -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

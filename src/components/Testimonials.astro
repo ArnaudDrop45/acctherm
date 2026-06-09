@@ -1,0 +1,105 @@
+---
+import { Icon } from "astro-icon/components";
+
+const testimonials = [
+    {
+        name: "Marc",
+        role: "Maître d'œuvre — Lyon",
+        content:
+            "J'ai eu l'occasion de faire appel à Tom de ACCTHERM pour nos tests infiltrométrie et bilan et attestations thermiques RT, DPE. Je recommande, réactif, ponctuel et très Pro.",
+        stars: 5,
+        type: "Professionnel",
+    },
+    {
+        name: "Camille",
+        role: "Propriétaire d'une maison neuve",
+        content:
+            "Très satisfaite de l’intervention effectuée pour le test de perméabilité de ma maison. Personne ponctuelle, professionnelle et très sympathique. Travail réalisé avec sérieux et efficacité. Merci Pierre !",
+        stars: 5,
+        type: "Particulier",
+    },
+    {
+        name: "81 Store",
+        role: "Professionnel",
+        content:
+            "J’ai fait appel à cette entreprise pour mon DPE et c’était nickel…. Pierre a été réactif, chaleureux et professionnel. Équipe jeune et efficace que je recommande vivement 🤌",
+        stars: 5,
+        type: "Professionnel",
+    },
+];
+---
+
+<section
+    id="temoignages"
+    class="px-4 sm:px-6 lg:px-8 pb-12 max-w-7xl mx-auto w-full"
+>
+    <div
+        class="mb-10 pb-6 border-b border-slate-200/60 flex flex-col sm:flex-row sm:items-end justify-between gap-4"
+    >
+        <div
+            class="mb-10 pb-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center items-start gap-3 md:gap-4"
+        >
+            <span
+                class="bg-orange-50 text-primary-orange text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg border border-orange-100 shrink-0"
+            >
+                Avis Clients
+            </span>
+            <h2
+                class="text-xl md:text-2xl font-black font-display text-primary-navy uppercase tracking-tight"
+            >
+                Ils font confiance à ACCTHERM
+            </h2>
+        </div>
+        <p class="text-xs md:text-sm text-slate-500 font-medium italic">
+            Note moyenne de 5/5 basée sur nos interventions en Rhône-Alpes
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {
+            testimonials.map((item) => (
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-0.5 text-amber-400">
+                                {Array.from({ length: item.stars }).map(() => (
+                                    <Icon
+                                        name="lucide:star"
+                                        class="w-4 h-4 fill-current"
+                                    />
+                                ))}
+                            </div>
+                            <span
+                                class={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                                    item.type === "Professionnel"
+                                        ? "bg-blue-50 text-primary-navy border border-blue-100"
+                                        : "bg-green-50 text-green-700 border border-green-100"
+                                }`}
+                            >
+                                {item.type}
+                            </span>
+                        </div>
+
+                        <p class="text-sm md:text-base text-slate-600 font-medium leading-relaxed italic mb-6">
+                            "{item.content}"
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3.5 border-t border-slate-100 pt-4 mt-auto">
+                        <div class="bg-slate-100 text-primary-navy w-10 h-10 rounded-full flex items-center justify-center font-bold font-display uppercase shrink-0 text-sm border border-slate-200">
+                            {item.name.substring(0, 2)}
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-primary-navy">
+                                {item.name}
+                            </p>
+                            <p class="text-xs text-slate-400 font-semibold">
+                                {item.role}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>

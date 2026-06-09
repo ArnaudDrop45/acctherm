@@ -1,0 +1,219 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FAQ from "../../components/FAQ.astro";
+import Contact from "../../components/Contact.astro";
+import { Icon } from 'astro-icon/components';
+
+const pageTitle = "Test Infiltrométrie Intermédiaire Lyon | Porte Soufflante RE2020";
+const pageDescription = "Sécurisez votre chantier avant la fermeture des cloisons. Test de la porte soufflante (blowerdoor) hors d'eau / hors d'air à Lyon et Rhône-Alpes. Rapport rapide.";
+
+// Schéma
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Test d'infiltrométrie intermédiaire (Cours de chantier)",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://acctherm.com/#localbusiness"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Auvergne-Rhône-Alpes",
+        "sameAs": "https://www.wikidata.org/wiki/Q18247094"
+      },
+      "description": "Mesure de perméabilité à l'air intermédiaire hors d'eau / hors d'air pour localiser et corriger les fuites thermiques avant la pose des cloisons."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://acctherm.com" },
+        { "@type": "ListItem", "position": 2, "name": "Prestations", "item": "https://acctherm.com/prestations" },
+        { "@type": "ListItem", "position": 3, "name": "Infiltrométrie Intermédiaire", "item": "https://acctherm.com/prestations/infiltrometrie-intermediaire" }
+      ]
+    }
+  ]
+};
+
+// FAQs 
+const infiltroInterFaqs = [
+  {
+    question: "À quel moment exact du chantier faut-il planifier le test intermédiaire ?",
+    answer: "Le moment idéal se situe lorsque le bâtiment est 'hors d'eau / hors d'air'. L'enveloppe isolante doit être achevée : la membrane d'étanchéité à l'air (ou l'enduit technique) doit être posée sur les murs et plafonds, et les menuiseries extérieures installées. Le test doit impérativement avoir lieu AVANT que les plaquistes ne referment les cloisons de distribution, afin que les fuites restent accessibles pour être réparées."
+  },
+  {
+    question: "Qui doit être présent lors de l'intervention d'ACCTHERM ?",
+    answer: "Nous conseillons vivement la présence du maître d'œuvre (ou conducteur de travaux) ainsi que des principaux artisans concernés (plaquiste/isoleur, électricien, plombier). En cas de détection de fuite, nous leur montrons directement le problème sur site pour qu'ils puissent appliquer le bon geste correctif immédiatement pendant que la pièce est sous pression."
+  },
+  {
+    question: "Le test d'infiltrométrie intermédiaire est-il obligatoire sous la RE2020 ?",
+    answer: "Légalement, la RE2020 (comme la RT2012) n'impose qu'un test final à la réception du bâtiment. Cependant, le test intermédiaire est devenu un standard de qualité indispensable pour les constructeurs et maîtres d'œuvre. Il s'agit d'une assurance anti-échec : corriger une fuite d'air derrière un doublage déjà plaqué et peint coûte jusqu'à 10 fois plus cher et peut bloquer la livraison de la maison."
+  },
+  {
+    question: "Quels outils utilisez-vous pour traquer les fuites d'air invisibles ?",
+    answer: "Chez ACCTHERM, nous utilisons la fausse porte soufflante (Blowerdoor) pour mettre le bâtiment en dépression ou surpression. Pour cartographier précisément les infiltrations parasites, nos techniciens déploient des générateurs de fumée artificielle (fumigènes de chantier) et des caméras thermiques de haute précision."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={serviceSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO SECTION SÉMANTIQUE -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-16 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- BREADCRUMB -->
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6">
+          <a href="/" class="hover:text-primary-orange transition-colors flex items-center gap-1">Accueil</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <a href="/prestations" class="hover:text-primary-orange transition-colors">Prestations</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <span class="text-slate-600 aria-current='page'">Infiltrométrie Intermédiaire</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 text-left">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
+              Contrôle en cours de chantier • Hors d'eau / Hors d'air
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-[1.1] mb-6 tracking-tight">
+              Test d'Infiltrométrie Intermédiaire <span class="text-primary-orange">à Lyon</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl">
+              Sécurisez l'enveloppe thermique de vos constructions avant qu'il ne soit trop tard. Notre test de <strong class="text-primary-navy font-bold">porte soufflante (blowerdoor) en cours de chantier</strong> permet de localiser et corriger les fuites d'air à moindre coût, garantissant le succès de votre contrôle RE2020 final.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" class="bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer">
+                Planifier un test intermédiaire
+              </a>
+              <a href="#pourquoi" class="border-2 border-primary-navy text-primary-navy font-bold py-4 px-8 rounded-xl text-sm hover:bg-primary-navy hover:text-white transition-all text-center cursor-pointer">
+                Pourquoi le réaliser ?
+              </a>
+            </div>
+          </div>
+          
+          <!-- Encart technique visuel de droite -->
+          <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-sm font-bold text-primary-navy uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Icon name="lucide:sliders" class="text-primary-orange w-4 h-4" /> Fiche Technique de l'Intervention
+            </h3>
+            <ul class="space-y-3.5 text-xs md:text-sm font-semibold text-slate-600">
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Équipement</span>
+                <span class="text-primary-navy">Porte soufflante (Blowerdoor)</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Méthode de traque</span>
+                <span class="text-primary-navy">Générateur de fumée & Thermographie</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Stade idéal</span>
+                <span class="text-primary-orange">Avant fermeture des cloisons</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Cible principale</span>
+                <span class="text-primary-navy">Maîtres d'œuvre, Constructeurs, Artisans</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION COPYWRITING : LES BÉNÉFICES BUSINESS -->
+    <section id="pourquoi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight">
+          L'assurance anti-échec pour vos projets RE2020
+        </h2>
+        <p class="text-sm md:text-base text-slate-500 font-medium mt-3">
+          Anticiper les défauts d'étanchéité, c'est protéger votre marge commerciale et votre réputation auprès de vos clients.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:wrench" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Réparations simples & instantanées</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Tant que le placo n'est pas posé, réparer un défaut sur la membrane ou une liaison de menuiserie prend quelques minutes avec le bon adhésif. Une fois les cloisons fermées, c'est un calvaire technique.
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:shield-check" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Zéro risque au test réglementaire final</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            En validant l'étanchéité de manière intermédiaire, vous avancez sereinement dans votre planning. Vous avez la certitude mathématique que votre test final de fin de chantier sera validé du premier coup.
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:users" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Fédérer vos équipes d'artisans</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            L'intervention sur site sert de formation pédagogique en direct. Électriciens, plaquistes et menuisiers visualisent immédiatement l'impact de leur travail sur l'enveloppe globale du bâtiment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION PROCESS : COMMENT ÇA SE PASSE SUR LE CHANTIER -->
+    <section class="w-full bg-white border-y border-slate-100 py-16 mb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Methode ACCTHERM</span>
+          <h2 class="text-2xl md:text-3xl font-black font-display text-primary-navy uppercase tracking-tight">
+            Notre protocole de diagnostic des fuites
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative">
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">01</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Mise en pression</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Installation de notre porte soufflante automatisée sur l'une des ouvertures extérieures du bâtiment.</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">02</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Localisation des fuites</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Mise en route des générateurs de fumée pour rendre visible à l'œil nu le moindre passage d'air parasite à travers l'isolant.</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">03</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Repérage des points critiques</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Contrôle chirurgical des liaisons (seuils, coffres de volets, passages de câbles électriques, tuyauteries).</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">04</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Cap sur le Test Final</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Remise d'un rapport de préconisations clair pour corriger les fuites. Vos artisans réparent, le chantier avance, et vous préparez sereinement la <strong class="text-primary-navy font-bold">Mesure Finale obligatoire</strong> pour obtenir votre attestation RE2020.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ SPÉCIFIQUE -->
+    <FAQ title="Des réponses claires pour vos conducteurs de travaux" faqs={infiltroInterFaqs} />
+
+    <!-- 5. LE COMPOSANT CONTACT POUR LA CAPTURE DE LEAD -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

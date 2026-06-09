@@ -1,0 +1,286 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import logoCompany from '../assets/acctherm-logo.webp';
+---
+
+<header id="header" class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 px-4 sm:px-8 py-4 flex justify-between items-center shrink-0">
+  <div class="flex items-center gap-4 md:gap-12">
+    <a href="/" class="flex items-center focus:outline-none shrink-0 relative z-[60]">
+      <Image 
+        src={logoCompany} 
+        alt="ACCTHERM Logo" 
+        class="h-8 md:h-12 w-auto object-contain" 
+        loading="eager"
+      />
+    </a>
+    
+    {/* Navigation Desktop */}
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="/" class="text-sm font-bold text-primary-navy hover:text-primary-orange transition-colors">Accueil</a>
+      
+      {/* Menu Prestations */}
+      <div class="relative group">
+        <a 
+          href="/prestations" 
+          class="flex items-center gap-1 text-sm font-bold text-primary-navy hover:text-primary-orange transition-colors py-2 cursor-pointer"
+        >
+          Prestations <Icon name="lucide:chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-primary-orange" />
+        </a>
+        <div class="absolute top-full left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
+          <div class="flex flex-col gap-1">
+            <a href="/prestations/test-infiltrometrie" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Test d'infiltrométrie intermédiaire</a>
+            <a href="/prestations/infiltrometrie-finale" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Infiltrométrie Finale & Attestation RE2020</a>
+            <a href="/prestations/controle-vmc-promevent" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Contrôle Obligatoire Systèmes VMC</a>
+            <a href="/prestations/attestation-fin-de-chantier" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Attestation fin de chantier</a>
+            <a href="/prestations/dpe-neuf" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">DPE</a>
+            <a href="/prestations/formations-conseils" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Formations & Conseils</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Menu Expertise Desktop */}
+      <div class="relative group">
+        <a 
+          href="/expertise" 
+          class="flex items-center gap-1 text-sm font-bold text-primary-navy hover:text-primary-orange transition-colors py-2 cursor-pointer"
+        >
+          Expertise <Icon name="lucide:chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-primary-orange" />
+        </a>
+        <div class="absolute top-full left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
+          <div class="flex flex-col gap-1">
+            <a href="/expertise" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-bold text-primary-orange transition-colors">Centre de Ressources →</a>
+            <div class="border-t border-slate-100 my-1"></div>
+            <a href="/expertise/guide-re2020" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Norme RE2020</a>
+            <a href="/expertise/recherche-fuites-thermographie" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Recherche de fuites</a>
+            <a href="/expertise/qai-sante-ventilation" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Qualité de l'air (QAI)</a>
+            <a href="/expertise/test-intermediaire-vs-final" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Test Intermédiaire vs Final</a>
+            <a href="/expertise/checklist-preparer-test-etancheite" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Checklist de préparation</a>
+            <a href="/expertise/renovation-etancheite-air-avant-apres" class="text-sm p-2.5 rounded-lg hover:bg-slate-50 font-semibold text-slate-700 hover:text-primary-orange transition-colors">Étanchéité & Rénovation</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/equipe" class="text-sm font-bold text-primary-navy hover:text-primary-orange transition-colors">Équipe</a>
+      <a href="/contact" class="text-sm font-bold text-primary-navy hover:text-primary-orange transition-colors">Contact</a>
+    </nav>
+  </div>
+
+  <div class="flex items-center gap-4 md:gap-6 relative z-[60]">
+    {/* Badge Qualibat Desktop */}
+    <div class="hidden sm:flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-100">
+      <Icon name="lucide:shield-check" class="w-4 h-4 text-green-600" />
+      <span class="text-[10px] font-bold text-slate-600 uppercase tracking-tight">Qualibat 8711 & 8741</span>
+    </div>
+
+    {/* Menu Équipe */}
+    <div id="team-menu-container" class="relative group text-right mr-4 lg:mr-0">
+      <button id="team-menu-btn" class="flex items-center gap-1.5 text-right cursor-pointer focus:outline-none py-1 group">
+        <div class="hidden xs:block">
+          <p class="text-xs font-bold text-primary-navy group-hover:text-primary-orange transition-colors whitespace-nowrap">L'Équipe ACCTHERM</p>
+          <p class="text-[10px] text-slate-500 font-medium">Experts Rhône-Alpes</p>
+        </div>
+        <Icon name="lucide:phone" class="xs:hidden w-5 h-5 text-primary-navy group-hover:text-primary-orange" />
+        <Icon name="lucide:chevron-down" class="hidden xs:block w-3.5 h-3.5 text-slate-400 group-hover:text-primary-orange transition-colors" />
+      </button>
+
+      <div id="team-dropdown" class="absolute top-full right-0 w-56 bg-white border border-slate-200 shadow-xl rounded-xl p-3 opacity-0 invisible group-hover:lg:opacity-100 group-hover:lg:visible data-[open=true]:opacity-100 data-[open=true]:visible data-[open=true]:translate-y-0 transition-all duration-200 translate-y-2 z-50 text-left">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-2">Lignes directes</p>
+        
+        <div class="flex flex-col gap-1">
+          <a href="tel:0695311758" class="flex flex-col p-2 rounded-lg hover:bg-slate-50 group/item transition-colors">
+            <span class="text-xs font-bold text-primary-navy group-hover/item:text-primary-orange transition-colors">Tom POULANGES</span>
+            <span class="text-xs text-slate-500 font-medium flex items-center gap-1 mt-0.5">
+              <Icon name="lucide:phone" class="w-3 h-3 text-slate-400" /> 06.95.31.17.58
+            </span>
+          </a>
+          
+          <div class="border-t border-slate-100 my-1"></div>
+          
+          <a href="tel:0634583303" class="flex flex-col p-2 rounded-lg hover:bg-slate-50 group/item transition-colors">
+            <span class="text-xs font-bold text-primary-navy group-hover/item:text-primary-orange transition-colors">Pierre POULANGES</span>
+            <span class="text-xs text-slate-500 font-medium flex items-center gap-1 mt-0.5">
+              <Icon name="lucide:phone" class="w-3 h-3 text-slate-400" /> 06.34.58.33.03
+            </span>
+          </a>
+          
+          <div class="border-t border-slate-100 my-1"></div>
+          
+          <a href="/equipe" class="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 group/item transition-colors text-xs font-bold text-primary-orange">
+            <span>Découvrir l'équipe</span>
+            <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 group-hover/item:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Hamburger Mobile */}
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden relative w-10 h-10 focus:outline-none flex items-center justify-center z-[60]"
+      aria-label="Ouvrir le menu"
+    >
+      <span class="burger-line absolute block h-0.5 w-7 bg-primary-navy rounded-full transition-transform duration-300 translate-y-[-6px]"></span>
+      <span class="burger-line absolute block h-0.5 w-7 bg-primary-navy rounded-full transition-opacity duration-300"></span>
+      <span class="burger-line absolute block h-0.5 w-7 bg-primary-navy rounded-full transition-transform duration-300 translate-y-1.5"></span>
+    </button>
+  </div>
+</header>
+
+{/* Menu Mobile Overlay */}
+<nav
+  id="mobile-menu"
+  class="lg:hidden fixed top-0 left-0 w-full h-[100dvh] z-40 bg-white flex flex-col pt-24 px-6 pb-8 gap-2 overflow-y-auto transition-all duration-500 ease-out -translate-y-full opacity-0 invisible pointer-events-none"
+>
+  <a href="/" class="mobile-link w-full text-left text-xl font-bold uppercase text-primary-navy py-3 border-b border-slate-100">
+    Accueil
+  </a>
+
+  {/* Accordéon Mobile Prestations */}
+  <div class="mobile-accordion w-full border-b border-slate-100">
+    <button class="accordion-btn w-full text-left text-xl uppercase font-bold text-primary-navy flex justify-between items-center py-4">
+      Prestations
+      <Icon name="lucide:chevron-down" class="chevron w-5 h-5 transition-transform duration-300 text-slate-400" />
+    </button>
+    <div class="accordion-content overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+      <div class="flex flex-col pl-4 border-l-2 border-slate-100 mt-1 mb-4 gap-4">
+        <a href="/prestations" class="mobile-link text-lg font-bold text-primary-orange flex items-center gap-1.5">
+          Toutes nos prestations <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+        <a href="/prestations/test-infiltrometrie" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Test d'infiltrométrie intermédiaire</a>
+        <a href="/prestations/infiltrometrie-finale" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Infiltrométrie Finale & Attestation RE2020</a>
+        <a href="/prestations/controle-vmc-promevent" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Contrôle Obligatoire Systèmes VMC</a>
+        <a href="/prestations/attestation-fin-de-chantier" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Attestation fin de chantier</a>
+        <a href="/prestations/dpe-neuf" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">DPE</a>
+        <a href="/prestations/formations-conseils" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Formations & Conseils</a>
+      </div>
+    </div>
+  </div>
+
+  {/* Accordéon Mobile Expertise */}
+  <div class="mobile-accordion w-full border-b border-slate-100">
+    <button class="accordion-btn w-full text-left text-xl uppercase font-bold text-primary-navy flex justify-between items-center py-4">
+      Expertise
+      <Icon name="lucide:chevron-down" class="chevron w-5 h-5 transition-transform duration-300 text-slate-400" />
+    </button>
+    <div class="accordion-content overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+      <div class="flex flex-col pl-4 border-l-2 border-slate-100 mt-1 mb-4 gap-4">
+        <a href="/expertise" class="mobile-link text-lg font-bold text-primary-orange flex items-center gap-1.5">
+          Toutes nos expertises <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+        <a href="/expertise/guide-re2020" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Norme RE2020</a>
+        <a href="/expertise/recherche-fuites-thermographie" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Recherche de fuites</a>
+        <a href="/expertise/qai-sante-ventilation" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Qualité de l'air (QAI)</a>
+        <a href="/expertise/test-intermediaire-vs-final" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Test Intermédiaire vs Final</a>
+        <a href="/expertise/checklist-preparer-test-etancheite" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Checklist de préparation</a>
+        <a href="/expertise/renovation-etancheite-air-avant-apres" class="mobile-link text-lg font-medium text-slate-600 hover:text-primary-orange">Étanchéité & Rénovation</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="/equipe" class="mobile-link w-full text-left text-xl font-bold uppercase text-primary-navy py-3 mt-2 border-b border-slate-100">
+    L'Équipe
+  </a>
+  <a href="/contact" class="mobile-link w-full text-left text-xl font-bold uppercase text-primary-navy py-3 mt-2">
+    Contact
+  </a>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- GESTION DU MENU MOBILE (HAMBURGER) ---
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    
+    if (!btn || !menu) return;
+
+    const lines = btn.querySelectorAll('.burger-line');
+    const links = document.querySelectorAll('.mobile-link');
+    
+    let isMenuOpen = false;
+
+    const toggleMenu = () => {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        menu.classList.remove('-translate-y-full', 'opacity-0', 'invisible', 'pointer-events-none');
+        menu.classList.add('translate-y-0', 'opacity-100', 'visible', 'pointer-events-auto');
+        
+        if (lines.length >= 3) {
+          lines[0].classList.replace('translate-y-[-6px]', 'translate-y-0');
+          lines[0].classList.add('rotate-45');
+          lines[1].classList.add('opacity-0');
+          lines[2].classList.replace('translate-y-1.5', 'translate-y-0');
+          lines[2].classList.add('-rotate-45');
+        }
+        
+        document.body.style.overflow = 'hidden';
+      } else {
+        menu.classList.add('-translate-y-full', 'opacity-0', 'invisible', 'pointer-events-none');
+        menu.classList.remove('translate-y-0', 'opacity-100', 'visible', 'pointer-events-auto');
+        
+        if (lines.length >= 3) {
+          lines[0].classList.remove('rotate-45');
+          lines[0].classList.replace('translate-y-0', 'translate-y-[-6px]');
+          lines[1].classList.remove('opacity-0');
+          lines[2].classList.remove('-rotate-45');
+          lines[2].classList.replace('translate-y-0', 'translate-y-1.5');
+        }
+        
+        document.body.style.overflow = '';
+      }
+    };
+
+    btn.addEventListener('click', toggleMenu);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+
+    // --- GESTION DU CLIC SUR LE BOUTON TELEPHONE / ÉQUIPE ---
+    const teamBtn = document.getElementById('team-menu-btn');
+    const teamDropdown = document.getElementById('team-dropdown');
+    const teamContainer = document.getElementById('team-menu-container');
+
+    if (teamBtn && teamDropdown && teamContainer) {
+      teamBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = teamDropdown.getAttribute('data-open') === 'true';
+        teamDropdown.setAttribute('data-open', isOpen ? 'false' : 'true');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!teamContainer.contains(e.target as Node)) {
+          teamDropdown.setAttribute('data-open', 'false');
+        }
+      });
+    }
+
+    // --- ACCORDEONS DU MENU MOBILE ---
+    const accordions = document.querySelectorAll('.mobile-accordion');
+    accordions.forEach(acc => {
+      const accBtn = acc.querySelector('.accordion-btn');
+      const content = acc.querySelector('.accordion-content');
+      const chevron = acc.querySelector('.chevron');
+      
+      if (!accBtn || !content || !chevron) return;
+      
+      let isAccOpen = false;
+
+      accBtn.addEventListener('click', () => {
+        isAccOpen = !isAccOpen;
+        if (isAccOpen) {
+          content.classList.replace('max-h-0', 'max-h-96');
+          content.classList.replace('opacity-0', 'opacity-100');
+          chevron.classList.add('rotate-180');
+        } else {
+          content.classList.replace('max-h-96', 'max-h-0');
+          content.classList.replace('opacity-100', 'opacity-0');
+          chevron.classList.remove('rotate-180');
+        }
+      });
+    });
+  });
+</script>

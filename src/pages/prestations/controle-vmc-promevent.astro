@@ -1,0 +1,221 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FAQ from "../../components/FAQ.astro";
+import Contact from "../../components/Contact.astro";
+import { Icon } from 'astro-icon/components';
+
+// Métadonnées SEO pour intercepter les recherches liées au protocole Promevent obligatoire
+const pageTitle = "Contrôle VMC Obligatoire RE2020 Lyon | Protocole Promevent";
+const pageDescription = "Vérification réglementaire de vos systèmes de ventilation (VMC) à Lyon et Rhône-Alpes. Mesures de débit & pression certifiées Qualibat 8741. Rapport sous 24h.";
+
+// Schéma 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Contrôle obligatoire des systèmes de ventilation VMC RE2020",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://acctherm.com/#localbusiness"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Auvergne-Rhône-Alpes",
+        "sameAs": "https://www.wikidata.org/wiki/Q18247094"
+  },
+      "description": "Vérification visuelle et mesures physiques des systèmes de ventilation mécanique selon le protocole réglementaire Promevent/Ventilation RE2020 pour l'obtention de la conformité RE2020."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://acctherm.com" },
+        { "@type": "ListItem", "position": 2, "name": "Prestations", "item": "https://acctherm.com/prestations" },
+        { "@type": "ListItem", "position": 3, "name": "Contrôle VMC Promevent", "item": "https://acctherm.com/prestations/controle-vmc-promevent" }
+      ]
+    }
+  ]
+};
+
+// FAQs spécifiques aux exigences de la ventilation RE2020
+const vmcFaqs = [
+  {
+    question: "Le contrôle de la VMC est-il obligatoire pour toutes les maisons neuves ?",
+    answer: "Oui, c'est l'une des grandes nouveautés de la réglementation RE2020. Contrairement à la RT2012 où la ventilation n'était que rarement vérifiée, la RE2020 rend le contrôle des systèmes de ventilation mécanique obligatoire à la réception pour toutes les maisons individuelles et bâtiments résidentiels neufs."
+  },
+  {
+    question: "Qu'est-ce que le protocole Ventilation RE2020 et pourquoi est-il requis ?",
+    answer: "Le protocole Ventilation RE2020 est une méthodologie de référence imposée par l'État pour uniformiser les contrôles de ventilation. Il exige des mesures ultra-précises réalisées avec du matériel étalonné. Seuls les opérateurs titulaires de la certification Qualibat 8741, comme l'équipe d'ACCTHERM, sont légalement habilités à réaliser ce diagnostic et à émettre un rapport valable."
+  },
+  {
+    question: "Quels sont vos points de contrôle inspectés lors de votre intervention ?",
+    answer: "L'intervention se déroule en deux phases : une vérification visuelle de l'ensemble de l'installation (gaines, caisson, raccordements) et une phase de mesures physiques. À l'aide de manomètres et de débitmètres coniques, nous mesurons la pression et le débit d'air extrait (ou insufflé) directement au niveau de chaque bouche de la maison."
+  },
+  {
+    question: "Quels risques en cas de non-conformité de la VMC ?",
+    answer: "Si les débits ou les pressions mesurés ne correspondent pas aux exigences de l'étude thermique, le rapport est déclaré non conforme. Cela bloque la délivrance de votre attestation finale de conformité RE2020 (Cerfa). Au-delà de l'aspect légal, une VMC défaillante entraîne des risques de condensation, de moisissures et une dégradation rapide de la Qualité de l'Air Intérieur (QAI)."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={serviceSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO SECTION : Focus Qualité de l'Air & Conformité Certifiée -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-16 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- BREADCRUMB -->
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6">
+          <a href="/" class="hover:text-primary-orange transition-colors flex items-center gap-1">Accueil</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <a href="/prestations" class="hover:text-primary-orange transition-colors">Prestations</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <span class="text-slate-600" aria-current="page">Contrôle VMC Ventilation RE2020</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 text-left">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
+              Protocole Ventilation RE2020 Réglementaire • Certification Qualibat 8741
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-[1.1] mb-6 tracking-tight">
+              Contrôle Obligatoire VMC RE2020 <span class="text-primary-orange">à Lyon</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl">
+              Assurez la Qualité de l'Air Intérieur (QAI) de vos bâtiments et sécurisez votre attestation Cerfa. Notre audit technique valide vos <strong class="text-primary-navy font-bold">systèmes de ventilation mécanique</strong> par des mesures de débits et de pressions strictes, avec remise de votre rapport d'essai officiel sous 24h.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" class="bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer flex items-center justify-center gap-2">
+                <Icon name="lucide:check-square" class="w-4 h-4" /> Réserver mon contrôle VMC
+              </a>
+              <a href="#etapes" class="border-2 border-primary-navy text-primary-navy font-bold py-4 px-8 rounded-xl text-sm hover:bg-primary-navy hover:text-white transition-all text-center cursor-pointer">
+                Découvrir le protocole
+              </a>
+            </div>
+          </div>
+          
+          <!-- Encart technique de droite -->
+          <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-sm font-bold text-primary-navy uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Icon name="lucide:wind" class="text-primary-orange w-4 h-4" /> Métrologie & Performance VMC
+            </h3>
+            <ul class="space-y-3.5 text-xs md:text-sm font-semibold text-slate-600">
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Réglementation</span>
+                <span class="text-primary-navy">RE2020 (Obligatoire)</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Référentiel technique</span>
+                <span class="text-primary-navy">Protocole National Ventilation RE2020</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Outils de mesure</span>
+                <span class="text-primary-orange">Débitmètre à cône & Manomètre</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Agrément</span>
+                <span class="text-primary-navy">Opérateur Certifié Qualibat 8741</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION COPYWRITING : Pourquoi l'expertise Promevent d'ACCTHERM est indispensable -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight">
+          Évitez les pathologies du bâtiment et sécurisez votre PV de réception
+        </h2>
+        <p class="text-sm md:text-base text-slate-500 font-medium mt-3">
+          Un système de ventilation mal installé ou sous-dimensionné est le premier facteur de sinistres liés à l'humidité dans le neuf.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Avantage 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:activity" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Mesures physiques de précision</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Nous ne nous contentons pas d'un simple contrôle visuel. Nous mesurons scientifiquement les débits d'air extraits en m³/h et les pressions aux bouches auto-réglables ou hygrorésistantes pour garantir la parfaite conformité avec votre étude thermique.
+          </p>
+        </div>
+
+        <!-- Avantage 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:heart" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Santé et qualité de l'air garanties</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Une VMC conforme, c'est l'assurance d'évacuer efficacement les polluants intérieurs (COV, CO2, humidité excessive). Nous protégeons la santé des futurs occupants et l'intégrité des matériaux de votre construction.
+          </p>
+        </div>
+
+        <!-- Avantage 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:clock" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Rapport officiel sous 24 heures</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Tout comme pour nos tests d'infiltrométrie, notre réactivité locale à Lyon nous permet de saisir les données et de vous restituer le rapport d'inspection Ventilation RE2020 officiel sur-le-champ pour ne pas ralentir la signature des attestations finales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION VISUELLE : LES 3 ÉTAPES DU CONTRÔLE PROMEVENT -->
+    <section id="etapes" class="w-full bg-white border-y border-slate-100 py-16 mb-16 scroll-mt-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Déroulement de l'intervention</span>
+          <h2 class="text-2xl md:text-3xl font-black font-display text-primary-navy uppercase tracking-tight">
+            Les phases clés du protocole réglementaire
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+          <!-- Phase 1 -->
+          <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100">
+            <div class="text-3xl font-black text-orange-200 mb-4 font-display">01</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Pré-inspection & Étude Documentaire</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Analyse des plans et de l'étude thermique du bâtiment. Nous vérifions la cohérence entre le matériel préconisé par le bureau d'études et les équipements réellement installés sur le chantier.</p>
+          </div>
+          <!-- Phase 2 -->
+          <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100">
+            <div class="text-3xl font-black text-orange-200 mb-4 font-display">02</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Vérification Visuelle sur Site</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Contrôle complet de l'installation : absence de coudes trop prononcés ou d'écrasement des gaines isolées dans les combles, raccordement du caisson motorisé, bon positionnement et état de propreté des bouches d'extraction.</p>
+          </div>
+          <!-- Phase 3 -->
+          <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-100">
+            <div class="text-3xl font-black text-orange-200 mb-4 font-display">03</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Mesures Fonctionnelles</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Déploiement de nos appareils de mesure de haute précision. Test physique du débit d'extraction d'air dans les pièces humides (cuisine, salle de bain, WC) et vérification de la dépression du système pour valider les seuils réglementaires.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ SPÉCIFIQUE -->
+    <FAQ title="Des réponses techniques pour comprendre la conformité VMC" faqs={vmcFaqs} />
+
+    <!-- 5. CONTACT -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,264 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro"; 
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Checklist : Préparer son Test d'Étanchéité à l'Air | ACCTHERM";
+const pageDescription = "Guide pratique et checklist complète pour préparer votre bâtiment avant le test d'infiltrométrie RE2020 final afin d'éviter un échec ou une contre-visite.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://acctherm.com/expertise/checklist-preparer-test-etancheite/#article",
+  "headline": "Checklist Pratique : Comment Préparer son Test d'Infiltrométrie RE2020",
+  "description": pageDescription,
+  "author": {
+    "@type": "Organization",
+    "name": "ACCTHERM"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ACCTHERM",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acctherm.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acctherm.com/expertise/checklist-preparer-test-etancheite"
+  }
+};
+
+const pillars = [
+  {
+    title: "Vérifier le Second Œuvre",
+    desc: "Toutes les menuiseries doivent être posées et réglées. Les joints d'étanchéité périphériques, les seuils et les coffres de volets roulants doivent être totalement finalisés.",
+    icon: "lucide:layers"
+  },
+  {
+    title: "Sécuriser les Traversées",
+    desc: "Le raccordement des réseaux (eau, électricité, évacuations) doit être achevé. Les percements de l'enveloppe doivent être rebouchés ou manchonnés.",
+    icon: "lucide:plug"
+  },
+  {
+    title: "Libérer les Accès",
+    desc: "Pour un test final ou intermédiaire fluide, le bâtiment doit être propre, dégagé de tout encombrant majeur, et le courant électrique 230 V doit être opérationnel.",
+    icon: "lucide:door-open"
+  }
+];
+
+const indicators = [
+  { name: "Menuiseries & Vitrages", desc: "Toutes les vitres et portes extérieures sont posées. Les poignées sont installées pour permettre une fermeture hermétique complète." },
+  { name: "Siphons & Évacuations", desc: "Tous les siphons de plomberie (douches, baignoires, éviers) doivent être remplis d'eau pour bloquer les remontées d'air du réseau d'égout." },
+  { name: "Gaines Électriques", desc: "Les fourreaux et pieuvres électriques arrivant au tableau ou aux boîtiers encastrés doivent être rebouchés à l'aide de mastic ou de bouchons spécifiques." },
+  { name: "Trappe de Combles", desc: "La trappe d'accès aux combles perdus doit être posée et équipée de son joint d'étanchéité périphérique étalonné." },
+  { name: "Réseaux de VMC", desc: "Le réseau de ventilation doit être entièrement raccordé. L'opérateur se chargera d'obturer temporairement les bouches le temps du test." }
+];
+
+// Données FAQ
+const checklistFaqs = [
+  { 
+    question: "Qui doit préparer le chantier avant la venue d'ACCTHERM ?", 
+    answer: "Il incombe au maître d'œuvre, au constructeur ou au propriétaire de s'assurer que le bâtiment respecte la checklist de préparation. Un chantier non préparé augmente considérablement le risque de rater le test ou d'imposer une contre-visite." 
+  },
+  { 
+    question: "Est-ce que l'opérateur d'infiltrométrie bouche lui-même les aérations ?", 
+    answer: "Oui, selon la norme NF EN ISO 9972, l'opérateur colmate temporairement les orifices volontaires (bouches de VMC, entrées d'air des fenêtres, conduits de cheminée). En revanche, c'est aux artisans de colmater définitivement les fuites involontaires (gaines, siphons, menuiseries)." 
+  },
+  { 
+    question: "Combien de temps dure l'intervention pour un test final ?", 
+    answer: "Pour une maison individuelle standard, comptez entre 1h30 et 2h30 sur site. Cela comprend l'installation du matériel (Blowerdoor), la mise en pression/dépression, la recherche visuelle d'éventuels défauts et les mesures réglementaires." 
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- En-tête de l'article -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a href="/expertise" class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group">
+          <Icon name="lucide:arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg">
+              Guide Pratique
+            </span>
+            <span class="text-sm font-medium text-slate-400">Temps de lecture : 5 min</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6">
+            Checklist : Préparer son <span class="text-primary-orange">Test d'Étanchéité</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4">
+            Évitez les échecs et les contre-visites réglementaires en suivant notre guide de préparation pièce par pièce pour votre infiltrométrie RE2020.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6">
+          ZÉRO STRESSE AU CONTRÔLE : LA CLÉ EST DANS LA PRÉPARATION
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Le jour du test d'infiltrométrie final obligatoire approche. Pour obtenir votre attestation réglementaire de fin de chantier RE2020 et valider votre certificat de conformité, le coefficient de perméabilité à l'air de votre maison individuelle ne doit pas dépasser le seuil réglementaire de 0.60 m³/(h.m²).
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Un test raté à cause d'un simple oubli (un siphon vide, une gaine non bouchée) peut bloquer vos démarches administratives et engendrer des frais de contre-visite inutiles. Pour sécuriser le passage de l'opérateur, passez en revue ces points de contrôle indispensables.
+        </p>
+      </div>
+
+      <!-- Les 3 Piliers -->
+      <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+        Les 3 grands axes d'un chantier prêt à être contrôlé
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {pillars.map((pillar) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+            <div class="bg-orange-100 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+              <Icon name={pillar.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+              {pillar.title}
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+              {pillar.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Les Indicateurs Clés -->
+      <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3">
+          <Icon name="lucide:check-circle" class="w-6 h-6 text-primary-orange" />
+          La Checklist Technique de Fin de Chantier
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {indicators.map((ind) => (
+            <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm min-h-[72px]">
+              <div class="text-primary-navy font-black text-lg min-w-[120px] md:min-w-[140px] shrink-0 leading-none">
+                {ind.name}
+              </div>
+              <div class="text-slate-600 font-medium text-sm md:text-base leading-snug">
+                {ind.desc}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Cadre Technique (Erreurs vs Solutions) -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          LES ERREURS LES PLUS FRÉQUENTES CONSTATÉES SUR LE TERRAIN
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Risques -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-primary-navy mb-4 border-b border-slate-100 pb-4 flex items-center gap-2">
+              <Icon name="lucide:x-circle" class="w-5 h-5 text-red-500" />
+              Pièges à éviter
+            </h3>
+            <ul class="space-y-3 text-slate-600 font-medium">
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Oublier de fermer les fenêtres à clé :</strong> Une menuiserie simplement 'plaquée' sans un tour de clé laisse passer l'air sous la force de dépression de la Blowerdoor.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Les fourreaux de raccordement extérieurs ouverts :</strong> Les gaines qui vont vers la pompe à chaleur, l'éclairage de terrasse ou le portail sont de vraies autoroutes à air si elles ne sont pas étanchées à la mousse ou au mastic.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Accompagnement ACCTHERM -->
+          <div class="bg-slate-800 text-slate-300 p-8 rounded-2xl shadow-sm relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 w-32 h-32 bg-slate-700 rounded-full opacity-50 pointer-events-none"></div>
+            <h3 class="text-xl font-bold mb-4 relative z-10 border-b border-slate-600 pb-4 text-white">Le Jour du Test avec ACCTHERM</h3>
+            <p class="text-sm mb-4 relative z-10 font-medium text-slate-300">
+              En tant qu'opérateur agréé Qualibat 8711 & 8741, l'équipe d'ACCTHERM applique un protocole strict et normé.
+            </p>
+            <p class="text-sm relative z-10 font-medium text-slate-300">
+              Lors de notre arrivée sur site, nous effectuons un pré-diagnostic visuel rapide avec vous. Notre but est de vous accompagner vers la réussite de votre démarche RE2020. En cas de micro-fuite repérée lors de la mise en pression, nous la localisons ensemble pour vous permettre, dans la mesure du possible, un ajustement immédiat avant la validation des mesures officielles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schéma : Chronologie -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          Planning de préparation : J-7 avant le contrôle
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+          
+          <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3">1</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">À J-7 : Brief des Artisans</h4>
+            <p class="text-xs text-slate-500 font-medium">Vérification de la pose de la trappe de combles, inspection finale des joints de fenêtres et rebouchage des passages de câbles par l'électricien.</p>
+          </div>
+          
+          <div class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3">2</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">À J-1 : Ronde de Finition</h4>
+            <p class="text-xs text-slate-500 font-medium">Nettoyage du bâtiment pour éviter l'aspiration de poussières de plâtre par le ventilateur. Remplissage d'eau de tous les siphons de la maison.</p>
+          </div>
+          
+          <div class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md">
+            <div class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3">3</div>
+            <h4 class="font-bold text-white text-sm mb-2">Le Jour J : Contrôle Officiel</h4>
+            <p class="text-xs text-slate-300 font-medium">Accueil du technicien ACCTHERM, mise en place de la Blowerdoor, obturation réglementaire des bouches d'aération par nos soins et lancement des mesures.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Enjeu ACCTHERM -->
+      <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-5xl">
+          <h2 class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-primary-orange" />
+            L'importance d'un chantier propre et ordonné
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-medium">
+            Un test d’étanchéité à l’air réussi valide la bonne synergie de tous les corps d’état (plaquistes, électriciens, plombiers, menuisiers). En suivant scrupuleusement cette checklist, vous valorisez le travail de vos équipes, protégez le futur confort thermique des habitants, et assurez la délivrance de vos rapports d’infiltrométrie officielle sous 24 heures par ACCTHERM.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ title="Questions fréquentes sur la préparation à l'infiltrométrie" faqs={checklistFaqs} />
+
+    <!-- Contact Section -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

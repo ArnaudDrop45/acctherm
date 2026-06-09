@@ -1,0 +1,219 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FAQ from "../../components/FAQ.astro";
+import Contact from "../../components/Contact.astro";
+import { Icon } from 'astro-icon/components';
+
+// Métadonnées SEO B2B / Compétences bâtiment
+const pageTitle = "Formation Étanchéité à l'Air Artisans Lyon | Conseils RE2020";
+const pageDescription = "Sensibilisation et formation sur chantier pour artisans et plaquistes à Lyon. Maîtrisez les points critiques de l'infiltrométrie et de la RE2020.";
+
+// Schéma spécifique de type Service avec inclusion du fil d'Ariane
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Formation et conseil en étanchéité à l'air pour artisans du bâtiment",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://acctherm.com/#localbusiness"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Auvergne-Rhône-Alpes",
+        "sameAs": "https://www.wikidata.org/wiki/Q18247094"
+      },
+      "description": "Sensibilisation sur chantier des différents corps d'état (plaquistes, électriciens, menuisiers) pour acquérir les gestes métiers liés à l'étanchéité à l'air RE2020."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://acctherm.com" },
+        { "@type": "ListItem", "position": 2, "name": "Prestations", "item": "https://acctherm.com/prestations" },
+        { "@type": "ListItem", "position": 3, "name": "Formations & Conseils", "item": "https://acctherm.com/prestations/formations-artisans" }
+      ]
+    }
+  ]
+};
+
+// FAQs adaptées aux problématiques d'équipes et de compétences terrain
+const formationFaqs = [
+  {
+    question: "Sous quelle forme se déroulent vos séances de conseil et sensibilisation ?",
+    answer: "Nous privilégions une approche 100% terrain. Nos interventions se font directement sur vos chantiers en cours à Lyon ou en Rhône-Alpes. Nous réunissons vos équipes ou vos sous-traitants autour de cas concrets, idéalement lors d'une mise en pression intermédiaire du bâtiment pour rendre les fuites physiques et visibles immédiatement."
+  },
+  {
+    question: "Quels sont les corps d'état prioritaires pour cette sensibilisation ?",
+    answer: "Tous les corps d'état qui interviennent sur l'enveloppe ou la traversent sont concernés. En priorité : les plaquistes/isoleurs (pose de la membrane), les menuisiers (liaisons dormants/maçonnerie), les électriciens (percement des boîtes d'encastrement) et les plombiers/chauffagistes (passages de dalles et de réseaux thermiques)."
+  },
+  {
+    question: "Quel est le bénéfice financier pour mon entreprise de plâtrerie ou de maçonnerie ?",
+    answer: "Le calcul est rapide : une seule contre-visite pour un test d'infiltrométrie final raté fait perdre du temps, bloque la livraison et engendre des frais de reprise importants. Former vos compagnons aux bons réflexes dès le départ, c'est s'assurer que vos chantiers passent du premier coup et préserver votre marge commerciale."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={serviceSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO SECTION SÉMANTIQUE -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-16 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- BREADCRUMB -->
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6">
+          <a href="/" class="hover:text-primary-orange transition-colors">Accueil</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <a href="/prestations" class="hover:text-primary-orange transition-colors">Prestations</a>
+          <Icon name="lucide:chevron-right" class="w-3 h-3 text-slate-300" />
+          <span class="text-slate-600" aria-current="page">Formations & Conseils</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 text-left">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
+              Montée en compétences terrain • Assurance Qualité
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-[1.1] mb-6 tracking-tight">
+              Formations & Conseils <br/>aux Artisans <span class="text-primary-orange">à Lyon</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl">
+              Anticipez les exigences de la RE2020 en transmettant les bons réflexes à vos équipes. Notre accompagnement de <strong class="text-primary-navy font-bold">sensibilisation sur chantier</strong> permet aux différents corps d'état d'acquérir les gestes clés liés à l'étanchéité à l'air pour éliminer définitivement le risque de sinistres.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" class="bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer flex items-center justify-center gap-2">
+                <Icon name="lucide:graduation-cap" class="w-4 h-4" /> Planifier une session sur chantier
+              </a>
+              <a href="#objectifs" class="border-2 border-primary-navy text-primary-navy font-bold py-4 px-8 rounded-xl text-sm hover:bg-primary-navy hover:text-white transition-all text-center cursor-pointer">
+                Les modules abordés
+              </a>
+            </div>
+          </div>
+          
+          <!-- Encart technique visuel de droite -->
+          <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-sm font-bold text-primary-navy uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Icon name="lucide:users-2" class="text-primary-orange w-4 h-4" /> Format de la Sensibilisation
+            </h3>
+            <ul class="space-y-3.5 text-xs md:text-sm font-semibold text-slate-600">
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Lieu d'intervention</span>
+                <span class="text-primary-navy">Directement sur votre chantier actuel</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Public cible</span>
+                <span class="text-primary-navy">Plaquistes, Électriciens, Menuisiers</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Outil pédagogique</span>
+                <span class="text-primary-orange">Démonstration réelle par porte soufflante</span>
+              </li>
+              <li class="flex justify-between py-2.5 border-b border-slate-200/60">
+                <span class="text-slate-400">Objectif économique</span>
+                <span class="text-primary-navy">0% de contre-visite sur vos projets</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION COPYWRITING : LES BÉNÉFICES BUSINESS -->
+    <section id="objectifs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight">
+          Fédérez vos équipes autour de la performance thermique
+        </h2>
+        <p class="text-sm md:text-base text-slate-500 font-medium mt-3">
+          L'étanchéité à l'air est un travail collectif. Une seule erreur d'un sous-traitant peut invalider tout le travail de plâtrerie.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Carte Module 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:layers" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Plaquistes & Isoleurs</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Maîtrise des techniques de pose de la membrane pare-vapeur : traitement des recouvrements, jointoiement aux liaisons des dalles et des murs maçonnés, et gestion des angles complexes pour assurer un rendu étanche parfait avant habillage.
+          </p>
+        </div>
+
+        <!-- Carte Module 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:zap" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Électriciens & Plombiers</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Sensibilisation à l'impact des percements de l'enveloppe isolante. Utilisation correcte des boîtes d'encastrement étanches, traitement des passages de fourreaux électriques et colmatage des traversées de tubes sanitaires de climatisation ou ventilation.
+          </p>
+        </div>
+
+        <!-- Carte Module 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-6">
+            <Icon name="lucide:door-open" class="w-6 h-6" />
+          </div>
+          <h3 class="text-lg font-bold text-primary-navy mb-3">Menuisiers & Maçons</h3>
+          <p class="text-sm text-slate-500 leading-relaxed font-medium">
+            Focus sur les points névralgiques du bâtiment : étanchéité périphérique des baies vitrées coulissantes, calfeutrement des liaisons de coffres de volets roulants, gestion des seuils de portes et réduction des ponts thermiques structurels.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION PROCESS : LA PEDAGOGIE PAR LA PREUVE -->
+    <section class="w-full bg-white border-y border-slate-100 py-16 mb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Pédagogie active</span>
+          <h2 class="text-2xl md:text-3xl font-black font-display text-primary-navy uppercase tracking-tight">
+            La démonstration par la preuve physique
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative">
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">01</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Mise en pression réelle</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Nous installons notre porte soufflante sur votre chantier en cours pour mettre la pièce sous pression.</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">02</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Visualisation des fuites</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">À l'aide d'anémomètres à fil chaud et de fumigènes, nous montrons physiquement aux compagnons où l'air s'échappe.</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">03</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Correction immédiate</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Les ouvriers appliquent les correctifs en temps réel (pose d'adhésif, joints) et constatent instantanément la chute du débit de fuite.</p>
+          </div>
+          <div class="relative">
+            <div class="text-4xl font-black text-orange-200 mb-4 font-display">04</div>
+            <h4 class="text-base font-bold text-primary-navy mb-2">Réflexes pérennes</h4>
+            <p class="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">Vos équipes quittent le chantier avec une compréhension claire de l'impact direct de chaque geste sur l'étanchéité.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ SPÉCIFIQUE -->
+    <FAQ title="Des réponses claires pour l'organisation de vos équipes" faqs={formationFaqs} />
+
+    <!-- 5. LE COMPOSANT CONTACT -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

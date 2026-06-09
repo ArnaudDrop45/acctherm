@@ -1,0 +1,265 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro"; 
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Qualité de l'Air Intérieur (QAI) & Santé | Guide RE2020 | ACCTHERM";
+const pageDescription = "Dossier technique sur l'importance du renouvellement de l'air, de l'étanchéité des réseaux de ventilation et du contrôle obligatoire VMC Promevent.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://acctherm.com/expertise/qai-sante-ventilation/#article",
+  "headline": "La Qualité de l'Air Intérieur (QAI) & Santé : Les Enjeux de la Ventilation",
+  "description": pageDescription,
+  "author": {
+    "@type": "Organization",
+    "name": "ACCTHERM"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ACCTHERM",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acctherm.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acctherm.com/expertise/qai-sante-ventilation"
+  }
+};
+
+const pillars = [
+  {
+    title: "Renouvellement d'Air Continu",
+    desc: "Évacuation indispensable des polluants intérieurs (CO2, COV, formaldéhydes, humidité) et apport d'air neuf extérieur pour préserver la santé des occupants au quotidien.",
+    icon: "lucide:wind"
+  },
+  {
+    title: "Étanchéité des Réseaux aérauliques",
+    desc: "Des conduits de VMC parfaitement étanches évitent les fuites de charge, garantissent le débit prévu aux bouches et empêchent l'air pollué des combles d'entrer dans le circuit.",
+    icon: "lucide:shield-check"
+  },
+  {
+    title: "Hygiène des Équipements",
+    desc: "Propreté stricte de la centrale de ventilation, des réseaux et des bouches d'extraction pour prévenir le développement de moisissures, de bactéries ou l'accumulation de poussières.",
+    icon: "lucide:sparkles"
+  }
+];
+
+const indicators = [
+  { name: "Mesures de Débit", desc: "Contrôle du volume d'air extrait exprimé en m³/h au niveau de chaque bouche de ventilation (cuisine, bain, WC)." },
+  { name: "Mesures de Pression", desc: "Vérification de la dépression aux bouches d'extraction pour s'assurer du bon dimensionnement et de la performance du moteur de VMC." },
+  { name: "Inspection Visuelle", desc: "Vérification de l'absence de pincements, de coudes trop prononcés ou de déconnexions sur l'ensemble du réseau de gaines." },
+  { name: "Caractéristiques des Bouches", desc: "Validation de la conformité du type de bouches (autoréglables ou hygroréglables) selon l'étude thermique." },
+  { name: "Entrées d'Air", desc: "Vérification du bon dimensionnement et du non-obstruction des grilles d'amenée d'air sur les menuiseries." }
+];
+
+// Données FAQ
+const qaiFaqs = [
+  { 
+    question: "Quelle est l'obligation de la RE2020 concernant la ventilation ?", 
+    answer: "La RE2020 impose une vérification et une mesure obligatoire des systèmes de ventilation mécanique (VMC) à la réception des bâtiments résidentiels neufs. Ce contrôle doit être réalisé par un opérateur certifié indépendant selon le protocole officiel Promevent." 
+  },
+  { 
+    question: "Qu'est-ce que le protocole Promevent ?", 
+    answer: "C'est la méthodologie de référence réglementaire qui encadre l'inspection des VMC. Elle comprend une phase de diagnostic documentaire (vérification de l'étude), une inspection visuelle sur site de l'ensemble de l'installation, et des mesures physiques de débit et/ou de pression aux bouches d'extraction." 
+  },
+  { 
+    question: "Quels sont les risques d'une VMC mal installée ou non conforme ?", 
+    answer: "Une mauvaise ventilation entraîne un confinement de l'air (hausse du CO2 et des COV), des risques de condensation et de moisissures dégradant le bâti, ainsi que des pathologies respiratoires pour les occupants. Sur le plan légal, une non-conformité Promevent bloque l'obtention de l'attestation de fin de chantier." 
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- En-tête de l'article -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a href="/expertise" class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group">
+          <Icon name="lucide:arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg">
+              Dossier Technique
+            </span>
+            <span class="text-sm font-medium text-slate-400">Temps de lecture : 5 min</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6">
+            La Qualité de l'Air Intérieur <span class="text-primary-orange">(QAI) & Santé</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4">
+            L'importance cruciale du renouvellement d'air et de l'étanchéité des réseaux aérauliques dans les constructions neuves.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6">
+          POURQUOI L'ÉTANCHÉITÉ DES BÂTIMENTS IMPOSE UNE VENTILATION PARFAITE
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Avec l'avènement de la RT2012 puis de la RE2020, les bâtiments modernes sont devenus de véritables « bouteilles thermos », traquant la moindre fuite d'air pour réduire la facture de chauffage. Si cette étanchéité à l'air est une excellente nouvelle pour la sobriété énergétique, elle transforme la ventilation mécanique (VMC) en un organe vital pour la santé.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Nous passons en moyenne 85 % de notre temps dans des espaces clos. Sans un renouvellement d'air maîtrisé et des réseaux aérauliques parfaitement étanches, les polluants intérieurs s'accumulent, impactant directement la santé des habitants et la pérennité des structures en bois ou en maçonnerie.
+        </p>
+      </div>
+
+      <!-- Les 3 Piliers -->
+      <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+        Les 3 piliers d'une ventilation saine et performante
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {pillars.map((pillar) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+            <div class="bg-orange-100 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+              <Icon name={pillar.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+              {pillar.title}
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+              {pillar.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Les Indicateurs Clés -->
+      <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3">
+          <Icon name="lucide:check-circle" class="w-6 h-6 text-primary-orange" />
+          Les points clés vérifiés lors du contrôle obligatoire VMC
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {indicators.map((ind) => (
+            <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm min-h-[72px]">
+              <div class="text-primary-navy font-black text-lg min-w-[120px] md:min-w-[140px] shrink-0 leading-none">
+                {ind.name}
+              </div>
+              <div class="text-slate-600 font-medium text-sm md:text-base leading-snug">
+                {ind.desc}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Cadre Technique (Risques & Contrôle) -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          L'IMPACT CACHÉ DE L'ÉTANCHÉITÉ DES RÉSEAUX (GAINES)
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Risques de fuites -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-primary-navy mb-4 border-b border-slate-100 pb-4">Quels sont les risques de fuites sur les gaines ?</h3>
+            <ul class="space-y-3 text-slate-600 font-medium">
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Perte de débit :</strong> L'air est aspiré dans les combles plutôt que dans la salle de bain ou la cuisine, annulant l'efficacité de la VMC.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Surconsommation :</strong> Le moteur force pour compenser les pertes de charges, augmentant la consommation électrique en énergie primaire.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Pollution croisée :</strong> Risque d'aspiration de poussières de laine de verre ou de particules de stockage directement réinjectées ou stagnantes.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contrôle Promevent -->
+          <div class="bg-slate-800 text-slate-300 p-8 rounded-2xl shadow-sm relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 w-32 h-32 bg-slate-700 rounded-full opacity-50 pointer-events-none"></div>
+            <h3 class="text-xl font-bold mb-4 relative z-10 border-b border-slate-600 pb-4 text-white">Le Contrôle Réglementaire Promevent</h3>
+            <p class="text-sm mb-4 relative z-10 font-medium text-slate-300">
+              Chez ACCTHERM, nous réalisons le contrôle obligatoire des systèmes de ventilation RE2020.
+            </p>
+            <p class="text-sm relative z-10 font-medium text-slate-300">
+              Certifiés Qualibat 8741, nos experts mesurent précisément la pression et les débits effectifs à l'aide de débitmètres et manomètres étalonnés. Ce diagnostic rigoureux vous apporte la certitude d'un air sain, protège votre bâti contre l'humidité résiduelle, et sécurise la conformité de votre permis de construire.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schéma : Les étapes de l'inspection -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          Les 3 étapes clés de l'inspection de ventilation obligatoire
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+          
+          <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3">1</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Analyse Préalable</h4>
+            <p class="text-xs text-slate-500 font-medium">Étude des plans et du rapport thermique de la maison pour vérifier la cohérence des modèles de VMC et des débits théoriques requis.</p>
+          </div>
+          
+          <div class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3">2</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Vérifications sur Site</h4>
+            <p class="text-xs text-slate-500 font-medium">Parcours des combles, examen visuel des gaines (étanchéité, isolation) et mesures physiques directes de débit et pression aux bouches d'extraction.</p>
+          </div>
+          
+          <div class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md">
+            <div class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3">3</div>
+            <h4 class="font-bold text-white text-sm mb-2">Rapport Promevent</h4>
+            <p class="text-xs text-slate-300 font-medium">Édition sous 24h du rapport officiel conforme, document indispensable pour l'obtention de l'attestation finale de fin de travaux (Cerfa).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Enjeu ACCTHERM -->
+      <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-5xl">
+          <h2 class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+            <Icon name="lucide:heart-pulse" class="w-6 h-6 text-primary-orange" />
+            La ventilation : l'alliée de votre santé et de votre bâti
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-medium">
+            N'attendez pas la fin du chantier pour sensibiliser vos électriciens ou plombiers à la pose de la VMC. Des gaines écrasées ou mal scotchées compromettent la qualité de l'air de la future maison et entraînent un refus de conformité réglementaire. Faire contrôler son système par ACCTHERM, c'est garantir un bâtiment qui respire sainement pour les 50 prochaines années.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ title="Questions fréquentes sur la QAI et le contrôle VMC" faqs={qaiFaqs} />
+
+    <!-- Contact Section -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

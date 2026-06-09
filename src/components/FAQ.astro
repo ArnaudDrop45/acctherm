@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  faqs: FAQItem[]; 
+}
+
+const { title = "Questions Fréquentes", faqs = [] } = Astro.props as Props;
+
+// Génération automatique et dynamique du schéma FAQ pour Google
+const faqSchema = faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq: FAQItem) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
+---
+
+{faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
+
+<section class="px-4 sm:px-6 lg:px-8 pb-8 max-w-7xl mx-auto w-full">
+  <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
+    <h2 class="text-xl md:text-2xl font-black font-display text-primary-navy mb-6 leading-tight uppercase tracking-tight">
+      {title}
+    </h2>
+    <div class="space-y-3">
+      {faqs.map((faq: FAQItem, index: number) => (
+        <details id={`faq-item-${index}`} class="group border border-slate-100 rounded-xl open:bg-slate-50/50 transition-all duration-200">
+          <summary class="list-none p-4 text-sm md:text-base font-bold text-slate-700 cursor-pointer flex justify-between items-center transition-colors hover:text-primary-orange select-none">
+            <span class="flex-1 pr-4">{faq.question}</span>
+            <Icon name="lucide:chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 group-open:text-primary-orange transition-all duration-200" />
+          </summary>
+          <p class="px-4 pb-4 text-sm md:text-base leading-relaxed text-slate-500 font-medium whitespace-pre-wrap border-t border-slate-50/50 pt-2">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,561 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro";
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle =
+  "Rénovation & Étanchéité à l'Air : Test Avant/Après | ACCTHERM";
+const pageDescription =
+  "Pourquoi et comment optimiser l'étanchéité à l'air de votre maison en rénovation globale. Découvrez les bienfaits et le déroulement du test infiltrométrie avant/après travaux.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id":
+    "https://acctherm.com/expertise/renovation-etancheite-air-avant-apres/#article",
+  headline:
+    "Rénovation Énergétique & Étanchéité à l'Air : Pourquoi Réaliser un Test Avant/Après Travaux ?",
+  description: pageDescription,
+  author: {
+    "@type": "Organization",
+    name: "ACCTHERM",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "ACCTHERM",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://acctherm.com/logo.png",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id":
+      "https://acctherm.com/expertise/renovation-etancheite-air-avant-apres",
+  },
+};
+
+const pillars = [
+  {
+    title: "Économies de Chauffage Majeures",
+    desc: "En éliminant les fuites d'air parasites, vous supprimez les entrées d'air glacial en hiver. Votre système de chauffage consomme moins pour maintenir une température agréable.",
+    icon: "lucide:trending-down",
+  },
+  {
+    title: "Confort de Vie Sans Courants d'Air",
+    desc: "Fini la sensation désagréable de courant d'air froid près des prises de courant, des plinthes ou des fenêtres. Les températures intérieures restent homogènes dans chaque pièce.",
+    icon: "lucide:smile",
+  },
+  {
+    title: "Pérennité de l'Isolant et du Bâti",
+    desc: "Stoppe l'infiltration de l'air intérieur chaud et humide dans les murs. Cela prévient la condensation dans l'isolant (perte d'efficacité) et protège les structures des moisissures.",
+    icon: "lucide:shield-check",
+  },
+  {
+    title: "Qualité de l'Air & Acoustique",
+    desc: "Une bonne étanchéité oblige l'air neuf à passer par les entrées d'air filtrées de votre VMC, et non par les fissures poussiéreuses des combles. Elle atténue aussi les bruits extérieurs.",
+    icon: "lucide:wind",
+  },
+];
+
+const indicators = [
+  {
+    name: "Liaisons Maçonnerie / Charpente",
+    desc: "La jonction entre le haut des murs et la toiture est la première source de fuites d'air majeures en rénovation.",
+  },
+  {
+    name: "Menuiseries Extérieures",
+    desc: "Défauts de pose des nouvelles fenêtres, absence de joints d'étanchéité périphériques ou anciens coffres de volets roulants non isolés.",
+  },
+  {
+    name: "Traversées de Réseaux",
+    desc: "Passages des tuyaux d'évacuation, des arrivées d'eau et des gaines électriques à travers le plancher ou le plafond.",
+  },
+  {
+    name: "Prises et Interrupteurs",
+    desc: "L'air froid circule souvent dans les doublages et ressort directement par les appareillages électriques non étanches.",
+  },
+  {
+    name: "Trappe d'Accès aux Combles",
+    desc: "Souvent dépourvue de joint ou non verrouillée, elle laisse s'échapper une quantité massive d'air chaud vers les combles perdus.",
+  },
+];
+
+// Données FAQ
+const renoFaqs = [
+  {
+    question: "Le test d'infiltrométrie est-il obligatoire en rénovation ?",
+    answer:
+      "Il n'est pas systématiquement obligatoire pour toutes les rénovations simples. En revanche, il est fortement requis pour l'obtention de labels de haute performance (comme le label BBC Rénovation) et exigé dans le cadre de certaines subventions de rénovation globale (ex: MaPrimeRénov' Accompagné) afin de justifier de l'atteinte d'un gain énergétique réel.",
+  },
+  {
+    question:
+      "Pourquoi est-il crucial de faire un test AVANT le début des travaux ?",
+    answer:
+      "Faire un test de repérage initial (avant travaux) permet de cartographier avec précision toutes les fuites existantes à l'aide d'une caméra thermique ou d'un générateur de fumée. Cela évite aux artisans de passer à côté de fuites structurelles invisibles à l'œil nu qui ruineraient l'efficacité de la nouvelle isolation.",
+  },
+  {
+    question:
+      "Comment se déroule le test d'étanchéité en cours ou après rénovation ?",
+    answer:
+      "L'opérateur installe une fausse porte soufflante (Blowerdoor) équipée d'un ventilateur régulé. Il met la maison en dépression ou surpression. Tout en mesurant le débit d'air de fuite global, le technicien parcourt les pièces pour localiser précisément les infiltrations d'air parasites à l'aide d'anémomètres ou de fumigènes.",
+  },
+  {
+    question:
+      "Quelles sont les aides financières liées à l'amélioration de l'étanchéité à l'air ?",
+    answer:
+      "Les travaux d'isolation, de remplacement de menuiseries et d'installation de pare-vapeur étanches sont éligibles aux aides de l'Anah (MaPrimeRénov'), aux certificats d'économie d'énergie (CEE) et à l'éco-PTZ. Le test d'infiltrométrie permet de prouver la qualité globale de ces travaux.",
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+
+  <main class="grow bg-[#f8fafc]">
+    <!-- En-tête de l'article -->
+    <section
+      class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"
+      >
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a
+          href="/expertise"
+          class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group"
+        >
+          <Icon
+            name="lucide:arrow-left"
+            class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+          />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg"
+            >
+              Expertise Rénovation
+            </span>
+            <span class="text-sm font-medium text-slate-400"
+              >Temps de lecture : 6 min</span
+            >
+          </div>
+
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6"
+          >
+            Étanchéité à l'Air en Rénovation : <span class="text-primary-orange"
+              >Les Bienfaits du Test Avant/Après</span
+            >
+          </h1>
+          <p
+            class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4"
+          >
+            Pourquoi isoler ne suffit pas. Découvrez comment l'étanchéité à
+            l'air sécurise vos travaux de rénovation énergétique et comment
+            mesurer l'amélioration réelle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2
+          class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6"
+        >
+          L'ÉTANCHÉITÉ À L'AIR : LE MAILLON FAIBLE DE LA RÉNOVATION ÉNERGÉTIQUE
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Dans un projet de rénovation, on pense immédiatement au remplacement
+          de la chaudière, à l'isolation des combles ou au changement des
+          fenêtres. Pourtant, un détail invisible peut ruiner tous ces efforts :
+          les infiltrations d'air parasites.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Dans une maison ancienne non traitée, la somme de toutes les petites
+          fissures (autour des prises, des liaisons de dalles, des menuiseries)
+          représente souvent une ouverture béante de la taille d'une fenêtre de
+          toit grande ouverte en permanence. L'air froid extérieur s'y
+          engouffre, tandis que l'air chaud payé pour chauffer la maison
+          s'échappe en continu.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Traiter l'étanchéité à l'air en rénovation globale permet de valoriser
+          pleinement vos travaux d'isolation en créant une enveloppe continue et
+          étanche protectrice.
+        </p>
+      </div>
+
+      <!-- Les 4 Bienfaits -->
+      <h2
+        class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8"
+      >
+        Les 4 bienfaits majeurs de l'étanchéité à l'air en rénovation
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {
+          pillars.map((pillar) => (
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+              <div class="bg-orange-50 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+                <Icon name={pillar.icon} class="w-6 h-6" />
+              </div>
+              <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+                {pillar.title}
+              </h3>
+              <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+                {pillar.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Pourquoi le Test Avant / Après ? -->
+      <div
+        class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16"
+      >
+        <h2
+          class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3"
+        >
+          <Icon name="lucide:git-compare" class="w-6 h-6 text-primary-orange" />
+          La stratégie gagnante : Le Test Infiltrométrie Avant / Après travaux
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+          <div
+            class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm"
+          >
+            <span
+              class="inline-block bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md mb-3"
+            >
+              1. Test Diagnostic (Avant Travaux)
+            </span>
+            <h3 class="font-bold text-primary-navy text-lg mb-2">
+              Cartographier et cibler les fuites
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Réalisé avant toute opération de doublage ou d'isolation, ce
+              premier test met le bâtiment sous pression pour mettre en évidence
+              les faiblesses de l'enveloppe existante.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-500 font-medium">
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Localisation précise à la caméra thermique ou au fumigène.
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Permet de guider les artisans sur les points précis à colmater.
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Évite de masquer des fuites d'air structurelles irrécupérables par
+                la suite.
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm"
+          >
+            <span
+              class="inline-block bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md mb-3"
+            >
+              2. Test de Validation (Après Travaux)
+            </span>
+            <h3 class="font-bold text-primary-navy text-lg mb-2">
+              Quantifier et certifier les gains
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Une fois l'isolation posée, les membranes d'étanchéité scotchées
+              et les nouvelles menuiseries installées, le test final valide la
+              performance réelle obtenue.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-500 font-medium">
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Mesure du débit de fuite final (Q4Pa-surf).
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Atteste de la qualité globale de mise en œuvre des artisans.
+              </li>
+              <li class="flex items-center gap-1.5">
+                <Icon
+                  name="lucide:check"
+                  class="w-4 h-4 text-green-500 shrink-0"
+                />
+                Dossier indispensable pour les labels (BBC Rénovation, Effinergie)
+                et les subventions globales.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tableau comparatif cas concret -->
+      <div class="mb-16 max-w-5xl">
+        <h2
+          class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6"
+        >
+          Exemple Concret : Impact sur une maison individuelle (120 m²)
+        </h2>
+        <p class="text-slate-600 font-medium mb-6">
+          Voici les résultats typiques constatés chez nos clients à Lyon et en
+          Auvergne-Rhône-Alpes suite à une rénovation globale intégrant une
+          démarche d'étanchéité à l'air soignée.
+        </p>
+
+        <div
+          class="overflow-x-auto border border-slate-200 rounded-2xl shadow-sm bg-white"
+        >
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200">
+                <th
+                  class="p-4 text-sm font-bold text-primary-navy uppercase tracking-wider"
+                  >Indicateurs de performance</th
+                >
+                <th
+                  class="p-4 text-sm font-bold text-red-600 uppercase tracking-wider"
+                  >Avant travaux</th
+                >
+                <th
+                  class="p-4 text-sm font-bold text-green-600 uppercase tracking-wider"
+                  >Après travaux (Visé)</th
+                >
+              </tr>
+            </thead>
+            <tbody
+              class="divide-y divide-slate-100 text-sm font-medium text-slate-600"
+            >
+              <tr>
+                <td class="p-4 font-bold text-primary-navy"
+                  >Débit de fuite d'air (Q4Pa-surf)</td
+                >
+                <td class="p-4 text-red-600">1.50 m³/(h.m²)</td>
+                <td class="p-4 text-green-600"
+                  >0.45 m³/(h.m²) <span
+                    class="text-xs font-semibold text-slate-400"
+                    >(Niveau BBC Rénovation)</span
+                  ></td
+                >
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-primary-navy"
+                  >Taille cumulée des fuites d'air</td
+                >
+                <td class="p-4"
+                  >Équivaut à un trou de la taille d'une feuille A3</td
+                >
+                <td class="p-4">Équivaut à la taille d'une pièce de 2€</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-primary-navy"
+                  >Confort de vie intérieur</td
+                >
+                <td class="p-4"
+                  >Courants d'air froid, air sec ou trop humide, zones froides</td
+                >
+                <td class="p-4"
+                  >Températures homogènes, isolation acoustique accrue, parois
+                  chaudes</td
+                >
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-primary-navy"
+                  >Économies sur la facture de chauffage</td
+                >
+                <td class="p-4">-</td>
+                <td class="p-4 text-green-600"
+                  >Jusqu'à 20 à 25% d'économies cumulées</td
+                >
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-primary-navy"
+                  >Fonctionnement de la VMC</td
+                >
+                <td class="p-4 text-red-600"
+                  >Inefficace (l'air court-circuite la VMC)</td
+                >
+                <td class="p-4 text-green-600"
+                  >Optimal (renouvellement d'air sain maîtrisé)</td
+                >
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Les points sensibles à traiter en priorité -->
+      <div
+        class="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 mb-16"
+      >
+        <h2
+          class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3"
+        >
+          <Icon
+            name="lucide:alert-circle"
+            class="w-6 h-6 text-primary-orange"
+          />
+          Les points sensibles à surveiller en rénovation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            indicators.map((ind) => (
+              <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100 min-h-[72px]">
+                <div class="text-primary-navy font-bold text-sm shrink-0 leading-none bg-orange-100 text-primary-orange w-6 h-6 rounded-full flex items-center justify-center mt-0.5">
+                  !
+                </div>
+                <div>
+                  <h4 class="text-primary-navy font-bold text-sm leading-snug mb-1">
+                    {ind.name}
+                  </h4>
+                  <p class="text-slate-600 font-medium text-xs leading-relaxed">
+                    {ind.desc}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Méthodologie des tests étape par étape -->
+      <div class="mb-16 max-w-5xl">
+        <h2
+          class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8"
+        >
+          Démarche d'accompagnement ACCTHERM pour votre rénovation
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div
+            class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"
+          >
+          </div>
+
+          <div
+            class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm"
+          >
+            <div
+              class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              1
+            </div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">
+              1. Diagnostic Initial
+            </h4>
+            <p class="text-xs text-slate-500 font-medium">
+              Blowerdoor avant travaux. Nous repérons l'intégralité des fuites
+              d'air historiques à corriger en priorité lors de la phase
+              d'isolation.
+            </p>
+          </div>
+
+          <div
+            class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm"
+          >
+            <div
+              class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              2
+            </div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">
+              2. Suivi de Chantier
+            </h4>
+            <p class="text-xs text-slate-500 font-medium">
+              Pose des membranes pare-vapeur étanches et adhésifs de
+              raccordement par les artisans selon les directives du rapport
+              initial.
+            </p>
+          </div>
+
+          <div
+            class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md"
+          >
+            <div
+              class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              3
+            </div>
+            <h4 class="font-bold text-white text-sm mb-2">
+              3. Validation Finale
+            </h4>
+            <p class="text-xs text-slate-300 font-medium">
+              Test final d'infiltrométrie certifié Qualibat. Délivrance du
+              rapport officiel attestant des performances thermiques globales et
+              de l'étanchéité.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'engagement ACCTHERM -->
+      <div
+        class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"
+        >
+        </div>
+        <div class="relative z-10 max-w-5xl">
+          <h2
+            class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3"
+          >
+            <Icon
+              name="lucide:shield-check"
+              class="w-6 h-6 text-primary-orange"
+            />
+            Sécurisez vos subventions énergétiques avec ACCTHERM
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-medium">
+            Pour les projets de rénovation globale ou d'obtention de labels de
+            performance, un test d'infiltrométrie réalisé par un organisme
+            certifié est un atout réglementaire majeur. Chez ACCTHERM, nos
+            opérateurs certifiés Qualibat vous accompagnent sur vos chantiers de
+            Lyon et Auvergne-Rhône-Alpes pour garantir la conformité de vos
+            travaux et accélérer le déblocage de vos aides financières.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ title="FAQ : Étanchéité à l'air en rénovation" faqs={renoFaqs} />
+
+    <!-- Contact Section -->
+    <Contact />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import logoQualibat from "../assets/logo-qualibat.webp"; 
+import logoDpe from "../assets/logo-dpe.webp"; 
+
+---
+
+<section
+    id="certifications"
+    class="px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto w-full"
+>
+    <div
+        class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8"
+    >
+        <!-- Bloc de gauche - intégration de la mention RE2020 / RT2012 -->
+        <div class="flex flex-col text-center md:text-left shrink-0 max-w-xs">
+            <p
+                class="text-xs font-bold text-primary-orange uppercase tracking-widest mb-1"
+            >
+                Organismes Agréés
+            </p>
+            <h3
+                class="text-lg font-extrabold font-display text-primary-navy leading-tight mb-2"
+            >
+                Garantie d'État & Conformité Légale
+            </h3>
+            <p class="text-sm text-slate-500 leading-normal">
+                Accompagnement RE2020 & RT2012 pour constructeurs, maîtres
+                d'œuvre et particuliers.
+            </p>
+        </div>
+
+        <!-- Grille de droite ajustée à 3 colonnes -->
+        <div class="grid lg:grid-cols-3 gap-4 w-full max-w-4xl items-stretch">
+            <!-- CERTIF : ÉTANCHÉITÉ À L'AIR (QUALIBAT) -->
+            <div
+                class="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col items-center text-center justify-between group hover:bg-white hover:border-primary-orange/20 hover:shadow-sm transition-all duration-300"
+            >
+                <div class="w-full">
+                    <div
+                        class="h-24 flex items-center justify-center gap-1.5 select-none"
+                    >
+                        <Image 
+                            src={logoQualibat} 
+                            alt="Logo Qualibat" 
+                            class="h-18 w-auto object-contain"
+                        />
+                    </div>
+                    <span class="font-black text-xl tracking-tighter text-[#0f2c59]">8711</span>
+                    <p
+                        class="text-xs font-bold text-slate-500 uppercase tracking-tight mt-1"
+                    >
+                        Étanchéité à l'air
+                    </p>
+                </div>
+            </div>
+
+            <!--  CERTIF : VENTILATION (PROMEVENT) -->
+            <div
+                class="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col items-center text-center justify-between group hover:bg-white hover:border-primary-orange/20 hover:shadow-sm transition-all duration-300"
+            >
+                <div class="w-full">
+                    <div
+                        class="h-24 flex items-center justify-center gap-1.5 select-none"
+                    >
+                        <Image 
+                            src={logoQualibat} 
+                            alt="Logo Qualibat" 
+                            class="h-18 w-auto object-contain"
+                        />
+                    </div>
+                     <span class="font-black text-xl tracking-tighter text-[#0f2c59]">8741</span>
+                    <p
+                        class="text-xs font-bold text-slate-500 uppercase tracking-tight mt-1"
+                    >
+                        Ventilation • Protocole Promevent
+                    </p>
+                </div>
+            </div>
+
+            <!--  CERTIF : DIAGNOSTIC DE PERFORMANCE ÉNERGÉTIQUE -->
+            <div
+                class="bg-slate-50 border border-slate-100 rounded-xl p-4 flex flex-col items-center text-center justify-between group hover:bg-white hover:border-primary-orange/20 hover:shadow-sm transition-all duration-300"
+            >
+                <div class="w-full">
+                    <div
+                        class="h-24 flex items-center justify-center gap-1.5 select-none"
+                    >
+                        <Image 
+                            src={logoDpe} 
+                            alt="Logo Qualibat" 
+                            class="h-16 w-auto object-contain"
+                        />
+                    </div>
+                    <span class="font-black text-xl tracking-tighter text-[#0f2c59]">DPE INDIVIDUEL</span>
+                    </div>
+                    <p
+                        class="text-xs font-bold text-slate-500 uppercase tracking-tight mt-1"
+                    >
+                        Performance Énergétique
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

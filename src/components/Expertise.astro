@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const guides = [
+  { title: "Guide Complet de la Réglementation RE2020", desc: "Tout comprendre sur les nouvelles exigences thermiques et environnementales.", url: "/expertise/guide-re2020" },
+  { title: "Recherche de Fuites & Ponts Thermiques", desc: "Expertise technique sur l'usage des fumigènes et de la thermographie.", url: "/expertise/recherche-fuites-thermographie" },
+  { title: "La Qualité de l'Air Intérieur (QAI) & Santé", desc: "L'importance cruciale du renouvellement d'air et de l'étanchéité des réseaux.", url: "/expertise/qai-sante-ventilation" },
+  { title: "Test Intermédiaire vs Test Final", desc: "Pourquoi et quand réaliser un test d'infiltrométrie en cours de chantier.", url: "/expertise/test-intermediaire-vs-final" },
+  { title: "Checklist : Préparer son test d'étanchéité", desc: "Guide pratique pour éviter un échec ou une contre-visite au contrôle.", url: "/expertise/checklist-preparer-test-etancheite" }
+];
+---
+
+<section id="expertise-re2020" class="px-4 sm:px-6 lg:px-8 pb-16 pt-8 max-w-7xl mx-auto w-full">
+  <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-10 items-start">
+      
+      <div class="lg:col-span-5 flex flex-col justify-center lg:sticky lg:top-8">
+        <span class="inline-block text-xs font-bold text-primary-orange uppercase tracking-widest mb-3">
+          Autorité & Éducation
+        </span>
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display mb-6 leading-tight text-white">
+          Notre Centre de Ressources Techniques
+        </h2>
+        <div class="text-sm md:text-base text-slate-300 leading-relaxed font-medium space-y-4 mb-8">
+          <p>
+            La performance énergétique et le respect de la RE2020 ne s'improvisent pas. Que vous soyez artisan, architecte ou maître d'ouvrage, nous mettons notre savoir-faire à votre disposition.
+          </p>
+          <p>
+            Explorez nos guides détaillés pour sécuriser vos chantiers, comprendre les enjeux de la Qualité de l'Air Intérieur (QAI) et préparer sereinement vos contrôles obligatoires.
+          </p>
+        </div>
+
+        <div class="text-left">
+          <a href="/expertise" class="inline-flex items-center gap-2 border-2 border-white text-white font-bold py-3.5 px-6 rounded-xl text-sm hover:bg-white hover:text-primary-navy transition-all shadow-sm cursor-pointer group/btn">
+            Voir toutes les expertises
+            <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 flex flex-col gap-3 w-full">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 pl-1">Sélectionnez un dossier technique :</p>
+        
+        {guides.map((guide) => (
+          <a href={guide.url} class="group bg-white/5 border border-white/10 hover:border-primary-orange/60 hover:bg-white/10 p-4 rounded-xl backdrop-blur-sm flex justify-between items-center gap-4 transition-all duration-300 cursor-pointer text-left">
+            <div class="flex flex-col gap-1">
+              <h3 class="font-bold text-white text-sm md:text-base group-hover:text-primary-orange transition-colors duration-300">
+                {guide.title}
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                {guide.desc}
+              </p>
+            </div>
+            
+            <div class="bg-white/10 text-white group-hover:bg-primary-orange group-hover:text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:translate-x-1">
+              <Icon name="lucide:arrow-right" class="w-4 h-4" />
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

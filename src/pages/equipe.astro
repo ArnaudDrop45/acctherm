@@ -1,0 +1,314 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/Contact.astro";
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "L'Équipe d'Experts Thermiques ACCTHERM | Lyon & Rhône-Alpes";
+const pageDescription =
+  "Rencontrez Tom et Pierre Poulanges, les experts certifiés d'ACCTHERM. Spécialistes Qualibat 8711 & 8741 pour vos tests d'infiltrométrie et contrôles VMC RE2020.";
+
+// Schéma JSON-LD pour booster le SEO local
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    name: "ACCTHERM",
+    image: "https://acctherm.com/logo.png",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lyon",
+      addressRegion: "Auvergne-Rhône-Alpes",
+      addressCountry: "FR",
+    },
+    description:
+      "Société de contrôle énergétique agréée Qualibat 8711 et 8741 spécialisée en infiltrométrie et protocole Promevent.",
+    employee: [
+      {
+        "@type": "Person",
+        name: "Tom POULANGES",
+        jobTitle: "Opérateur Certifié Infiltrométrie",
+      },
+      {
+        "@type": "Person",
+        name: "Pierre POULANGES",
+        jobTitle: "Opérateur Certifié Ventilation VMC",
+      },
+    ],
+  },
+};
+
+const team = [
+  {
+    name: "Tom POULANGES",
+    role: "Opérateur Multicertifié RE2020 & RT2012",
+    badge: "Qualibat 8711 & 8741",
+    desc: "Expert polyvalent sur le terrain, Tom réalise l'ensemble de vos contrôles : infiltrométrie (tests intermédiaires & finaux), diagnostics VMC Promevent, DPE Neuf et attestations réglementaires de fin de chantier RE2020 / RT2012.",
+    initials: "TP",
+    icon: "lucide:shield-check",
+    phone: "06.95.31.17.58",
+    phoneRaw: "0695311758",
+  },
+  {
+    name: "Pierre POULANGES",
+    role: "Opérateur Multicertifié RE2020 & RT2012",
+    badge: "Qualibat 8711 & 8741",
+    desc: "Technicien conseil qualifié, Pierre vous accompagne de A à Z : infiltrométrie, mesure des débits et pressions VMC (Promevent), réalisation de vos DPE Neuf et édition des attestations réglementaires de conformité finale.",
+    initials: "PP",
+    icon: "lucide:wind",
+    phone: "06.34.58.33.03",
+    phoneRaw: "0634583303",
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={aboutSchema}>
+  <Header />
+
+  <main class="grow bg-[#f8fafc]">
+    <!-- En-tête de la page -->
+    <section
+      class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4 text-center"
+      >
+        <span
+          class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-4"
+        >
+          Qui sommes-nous ?
+        </span>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6 max-w-3xl mx-auto"
+        >
+          L'Équipe Technique <span class="text-primary-orange">ACCTHERM</span>
+        </h1>
+        <p
+          class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium"
+        >
+          Une expertise familiale reconnue pour valider la conformité
+          énergétique et environnementale de vos constructions neuves à Lyon et
+          dans toute la région Auvergne-Rhône-Alpes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Présentation des membres (2 colonnes) -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          team.map((member) => (
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col items-center text-center relative overflow-hidden group hover:border-primary-orange/40 hover:shadow-md hover:scale-[1.02] transition-all duration-300">
+              {/* Badge de certification */}
+              <span class="absolute top-4 right-4 bg-orange-50 text-primary-orange text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-orange-100">
+                {member.badge}
+              </span>
+
+              {/* Avatar Initials Monogram Frame */}
+              <div class="w-20 h-20 bg-[#1e293b] border-2 border-[#f97316] text-white rounded-full flex flex-col items-center justify-center mb-6 relative shadow-inner shrink-0 group-hover:scale-105 transition-all duration-300">
+                <span class="text-xl font-black font-display tracking-wider">
+                  {member.initials}
+                </span>
+                <Icon
+                  name={member.icon}
+                  class="w-3.5 h-3.5 absolute bottom-1 right-1 text-[#f97316]"
+                />
+              </div>
+
+              {/* Nom & Rôle */}
+              <h3 class="text-xl font-bold text-primary-navy mb-1">
+                {member.name}
+              </h3>
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
+                {member.role}
+              </p>
+
+              {/* Description */}
+              <p class="text-sm text-slate-500 leading-relaxed font-medium mb-8 grow">
+                {member.desc}
+              </p>
+
+              {/* Ligne Directe & Call CTA (Sticky bottom action) */}
+              <div class="w-full pt-6 border-t border-slate-100 flex flex-col gap-3">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Ligne directe
+                </span>
+                <a
+                  href={`tel:${member.phoneRaw}`}
+                  class="flex items-center justify-center gap-2 bg-[#1e293b] hover:bg-[#f97316] text-white font-bold py-3.5 px-6 rounded-xl text-sm transition-all duration-300 w-full shadow-sm"
+                >
+                  <Icon name="lucide:phone" class="w-4 h-4" />
+                  {member.phone}
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Section Notre Histoire -->
+    <section class="w-full bg-white border-t border-b border-slate-100 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Partie gauche (titre) -->
+          <div class="lg:col-span-4 text-left">
+            <span
+              class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-4"
+            >
+              Histoire de famille
+            </span>
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl font-black font-display text-primary-navy leading-tight uppercase tracking-tight"
+            >
+              Notre Histoire : <br />
+              <span class="text-primary-orange"
+                >Une transmission, <br />une ambition</span
+              >
+            </h2>
+            <div
+              class="hidden lg:block w-12 h-1 bg-primary-orange mt-6 rounded-full"
+            >
+            </div>
+          </div>
+
+          <!-- Partie droite (contenu textuel) -->
+          <div class="lg:col-span-8 flex flex-col gap-10">
+            {/* L'origine d'une expertise */}
+            <div
+              class="relative pl-6 border-l-2 border-slate-200 hover:border-primary-orange transition-colors"
+            >
+              <h3
+                class="text-xl font-bold text-primary-navy mb-3 flex items-center gap-2"
+              >
+                <span
+                  class="w-2.5 h-2.5 rounded-full bg-primary-orange inline-block"
+                ></span>
+                L'origine d’une expertise
+              </h3>
+              <p
+                class="text-slate-600 text-sm md:text-base leading-relaxed font-medium"
+              >
+                L'aventure Acctherm commence avec Pascal Poulanges.
+                Professionnel passionné et rigoureux, il fonde l’entreprise avec
+                une vision claire : accompagner les acteurs de la construction
+                et de l'immobilier lyonnais face aux enjeux de la performance
+                énergétique. Au fil des années, il bâtit la réputation
+                d'Acctherm sur des valeurs fortes : la précision technique, la
+                réactivité sur le terrain et un sens aigu du service client.
+              </p>
+            </div>
+
+            {/* L’élan d'une nouvelle génération */}
+            <div
+              class="relative pl-6 border-l-2 border-slate-200 hover:border-primary-orange transition-colors"
+            >
+              <h3
+                class="text-xl font-bold text-primary-navy mb-3 flex items-center gap-2"
+              >
+                <span
+                  class="w-2.5 h-2.5 rounded-full bg-primary-orange inline-block"
+                ></span>
+                L’élan d'une nouvelle génération
+              </h3>
+              <p
+                class="text-slate-600 text-sm md:text-base leading-relaxed font-medium"
+              >
+                Aujourd'hui, l'histoire familiale se poursuit. Tom et Pierre
+                Poulanges, ses fils, ont repris le flambeau. Ayant grandi avec
+                les valeurs de l'entreprise et formés aux exigences pointues des
+                réglementations thermiques et environnementales (RT2012,
+                RE2020), ils insufflent une nouvelle dynamique à Acctherm tout
+                en préservant l'ADN qui a fait son succès.
+              </p>
+            </div>
+
+            {/* Acctherm aujourd'hui */}
+            <div
+              class="relative pl-6 border-l-2 border-slate-200 hover:border-primary-orange transition-colors"
+            >
+              <h3
+                class="text-xl font-bold text-primary-navy mb-3 flex items-center gap-2"
+              >
+                <span
+                  class="w-2.5 h-2.5 rounded-full bg-primary-orange inline-block"
+                ></span>
+                Acctherm aujourd'hui
+              </h3>
+              <p
+                class="text-slate-600 text-sm md:text-base leading-relaxed font-medium"
+              >
+                Plus qu'une simple entreprise de diagnostic et d'infiltrométrie,
+                Acctherm est un partenaire de confiance pour les maîtres
+                d'ouvrage et les professionnels de l'immobilier dans la région
+                lyonnaise et Auvergne-Rhône-Alpes. Portée par cette synergie
+                familiale, l'équipe allie l’expérience historique de son
+                fondateur aux outils technologiques modernes pour garantir la
+                conformité et la sérénité de chaque chantier.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid-Page Value Banner -->
+    <section class="w-full bg-[#1e293b] text-white py-12 md:py-16">
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        {/* Item 1 */}
+        <div class="flex items-start gap-4">
+          <div
+            class="bg-[#f97316]/10 text-[#f97316] w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-[#f97316]/20"
+          >
+            <Icon name="lucide:clock" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-2">
+              Réactivité sous 24h
+            </h3>
+            <p class="text-sm text-slate-300 font-medium leading-relaxed">
+              Vos rapports réglementaires d'infiltrométrie et Promevent livrés
+              en un temps record pour obtenir vos attestations sans bloquer vos
+              chantiers.
+            </p>
+          </div>
+        </div>
+
+        {/* Item 2 */}
+        <div class="flex items-start gap-4">
+          <div
+            class="bg-[#f97316]/10 text-[#f97316] w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-[#f97316]/20"
+          >
+            <Icon name="lucide:map-pin" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-2">
+              Ancrage Auvergne-Rhône-Alpes
+            </h3>
+            <p class="text-sm text-slate-300 font-medium leading-relaxed">
+              Une structure de proximité basée à Lyon pour une intervention
+              réactive sur les départements 69, 01, 38, 42, 07, 26, 73.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire de contact en bas -->
+    <div class="py-12 bg-[#f8fafc] border-t border-slate-100">
+      <ContactForm />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

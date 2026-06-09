@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+
+const services = [
+    {
+        title: "Test d'Infiltrométrie Intermédiaire",
+        description:
+            "Test de la porte soufflante (blowerdoor) hors d'eau / hors d'air. Permet de localiser les fuites à temps et de corriger l'enveloppe thermique avant la fermeture des cloisons.",
+        icon: "lucide:git-commit",
+        url: "/prestations/test-infiltrometrie",
+    },
+    {
+        title: "Infiltrométrie Finale & Attestation RE2020",
+        description:
+            "Mesure de perméabilité à l'air finale obligatoire. Validation du coefficient d'étanchéité requis pour l'obtention de votre attestation de fin de chantier (Cerfa).",
+        icon: "lucide:file-check",
+        url: "/prestations/infiltrometrie-finale",
+    },
+    {
+        title: "Contrôle Obligatoire Systèmes VMC",
+        description:
+            "Vérification visuelle, mesures de débits et pressions aux bouches selon le protocole réglementaire Promevent. Obligatoire RE2020 pour la Qualité de l'Air Intérieur (QAI).",
+        icon: "lucide:gauge",
+        url: "/prestations/controle-vmc-promevent",
+    },
+    {
+        title: "Attestations de Fin de Chantier RE2020",
+        description:
+            "Génération de votre attestation finale réglementaire Cerfa. Étape juridique indispensable pour officialiser la conformité de votre permis de construire et valider votre DAACT.",
+        icon: "lucide:file-text",
+        url: "/prestations/attestation-fin-de-chantier",
+    },
+    {
+        title: "DPE Neuf (Performance Énergétique)",
+        description:
+            "Établissement du Diagnostic de Performance Énergétique construction obligatoire. Réalisé directement lors de notre passage sur site pour vos contrôles RE2020 (hors Audit).",
+        icon: "lucide:combine",
+        url: "/prestations/dpe-neuf",
+    },
+    {
+        title: "Formations & Conseils aux Artisans",
+        description:
+            "Sensibilisation sur chantier des différents corps d'état (plaquistes, électriciens, menuisiers) pour acquérir les bons réflexes métier liés à l'étanchéité.",
+        icon: "lucide:graduation-cap",
+        url: "/prestations/formations-conseils",
+    },
+];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {
+        services.map((service) => (
+            <a
+                href={service.url}
+                class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-primary-orange/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 text-left cursor-pointer"
+            >
+                <div class="bg-orange-50 w-12 h-12 rounded-xl flex items-center justify-center text-primary-orange group-hover:bg-primary-orange group-hover:text-white transition-all duration-300 shrink-0">
+                    <Icon name={service.icon} class="w-6 h-6" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="font-bold text-primary-navy text-base group-hover:text-primary-orange transition-colors duration-300 leading-tight">
+                        {service.title}
+                    </h3>
+                    <p class="text-sm text-slate-500 font-medium leading-relaxed">
+                        {service.description}
+                    </p>
+                </div>
+                <div class="mt-auto pt-2 flex items-center text-xs font-bold text-primary-orange uppercase tracking-widest">
+                    {service.url.startsWith("#")
+                        ? "Demander une formation →"
+                        : "Découvrir la prestation →"}
+                </div>
+            </a>
+        ))
+    }
+</div>

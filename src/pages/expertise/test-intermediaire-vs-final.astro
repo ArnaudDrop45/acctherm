@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro"; 
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Test Intermédiaire vs Test Final d'Infiltrométrie | ACCTHERM";
+const pageDescription = "Comparatif technique complet : pourquoi et quand réaliser un test d'étanchéité à l'air en cours de chantier pour garantir la conformité RE2020 finale.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://acctherm.com/expertise/test-intermediaire-vs-final/#article",
+  "headline": "Test Intermédiaire vs Test Final : Réussir son Infiltrométrie RE2020",
+  "description": pageDescription,
+  "author": {
+    "@type": "Organization",
+    "name": "ACCTHERM"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ACCTHERM",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://acctherm.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://acctherm.com/expertise/test-intermediaire-vs-final"
+  }
+};
+
+const pillars = [
+  {
+    title: "Le Test Intermédiaire (En cours de construction)",
+    desc: "Réalisé dès la mise hors d'eau / hors d'air, avant que les plaques de plâtre ne masquent l'isolant. C'est l'unique moment pour localiser et corriger facilement les fuites d'air.",
+    icon: "lucide:git-commit"
+  },
+  {
+    title: "Le Test Final (À la réception)",
+    desc: "Obligation légale RE2020 permettant de mesurer le coefficient de perméabilité définitif. Il conditionne la délivrance de l'attestation finale de conformité (Cerfa).",
+    icon: "lucide:award"
+  },
+  {
+    title: "La Complémentarité",
+    desc: "Le premier est un outil de diagnostic et de sérénité pour le constructeur ; le second est une validation juridique incontournable pour le maître d'ouvrage.",
+    icon: "lucide:arrow-left-right"
+  }
+];
+
+const indicators = [
+  { name: "Objectif du Test", desc: "Intermédiaire : Détecter et corriger les fuites cachées. Final : Certifier la valeur réglementaire globale." },
+  { name: "Stade du Chantier", desc: "Intermédiaire : Menuiseries posées, membrane pare-vapeur visible. Final : Bâtiment achevé, finitions et équipements posés." },
+  { name: "Caractère Obligatoire", desc: "Intermédiaire : Volontaire (fortement recommandé par les maîtres d'œuvre). Final : Strictement obligatoire (RE2020)." },
+  { name: "Livrable Associé", desc: "Intermédiaire : Rapport technique de repérage des fuites. Final : Rapport officiel Qualibat pour le Cerfa de fin de travaux." },
+  { name: "Seuil Réglementaire", desc: "Intermédiaire : Aucun (valeur indicative). Final : Maximum 0.60 m³/(h.m²) en maison individuelle." }
+];
+
+// Données FAQ
+const comparisonFaqs = [
+  { 
+    question: "Le test d'infiltrométrie intermédiaire dispense-t-il du test final ?", 
+    answer: "Absolument pas. Le test final reste la seule mesure juridique reconnue par l'État pour valider la RE2020. Le test intermédiaire est une étape technique de sécurité pour s'assurer que le test final sera réussi du premier coup." 
+  },
+  { 
+    question: "Qui doit commander le test intermédiaire sur le chantier ?", 
+    answer: "Il est généralement préconisé et piloté par le maître d'œuvre, le constructeur de maisons individuelles (CCMI) ou le plaquiste, afin de valider la qualité de la mise en œuvre de l'étanchéité avant de refermer les doublages." 
+  },
+  { 
+    question: "Que se passe-t-il si on ne fait qu'un test final et qu'il échoue ?", 
+    answer: "C'est le scénario critique : les cloisons étant fermées et les peintures faites, localiser et réparer les fuites à ce stade s'avère extrêmement complexe et coûteux. Cela peut nécessiter des démolitions partielles et retarder la livraison de la maison." 
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- En-tête de l'article -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a href="/expertise" class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group">
+          <Icon name="lucide:arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg">
+              Dossier Technique
+            </span>
+            <span class="text-sm font-medium text-slate-400">Temps de lecture : 6 min</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6">
+            Test Intermédiaire vs <span class="text-primary-orange">Test Final</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4">
+            Pourquoi et quand réaliser un test d'infiltrométrie en cours de chantier pour sécuriser sans stress votre conformité obligatoire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6">
+          ANTICIPER PLUTÔT SUBIR LES EXIGENCES DE LA RE2020
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Dans le cadre de la construction d'une maison individuelle, la gestion de l'étanchéité à l'air ne s'improvise pas à la dernière minute. La réglementation RE2020 impose un couperet technique en fin de chantier : un test de perméabilité à l'air (porte soufflante) dont le résultat doit être inférieur ou égal à 0.60 m³/(h.m²).
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Pour aborder cette échéance réglementaire en toute sérénité, la réalisation d'un test intermédiaire en cours de gros œuvre est une excellente opportunité de mettre toutes les chances de son côté pour réussir le test final. Elle permet de localiser et de corriger à moindre coût les fuites tant qu'elles sont encore accessibles.
+        </p>
+      </div>
+
+      <!-- Les 3 Piliers -->
+      <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+        Comprendre la chronologie de l'infiltrométrie
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {pillars.map((pillar) => (
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+            <div class="bg-orange-100 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+              <Icon name={pillar.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+              {pillar.title}
+            </h3>
+            <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+              {pillar.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Les Indicateurs Clés -->
+      <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3">
+          <Icon name="lucide:check-circle" class="w-6 h-6 text-primary-orange" />
+          Face-à-face : Intermédiaire vs Final en détails
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {indicators.map((ind) => (
+            <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm min-h-[72px]">
+              <div class="text-primary-navy font-black text-lg min-w-[120px] md:min-w-[140px] shrink-0 leading-none">
+                {ind.name}
+              </div>
+              <div class="text-slate-600 font-medium text-sm md:text-base leading-snug">
+                {ind.desc}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Cadre Technique (Quand et Comment) -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          LE MOMENT CHARNIÈRE : QUAND PLANIFIER LE TEST EN COURS DE CHANTIER ?
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Fenêtre d'intervention -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-primary-navy mb-4 border-b border-slate-100 pb-4">La fenêtre d'intervention parfaite</h3>
+            <p class="text-sm text-slate-500 mb-4 font-medium">Le test intermédiaire doit être réalisé au stade hors d'eau / hors d'air. Plus précisément :</p>
+            <ul class="space-y-3 text-slate-600 font-medium">
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span>Les menuiseries extérieures (portes et fenêtres) sont entièrement posées avec leurs joints périphériques étanches.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span>Les membranes d'étanchéité à l'air (pare-vapeur) en toiture et sur les murs à ossature sont fixées et scotchées.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"></div>
+                <span><strong>Point critique :</strong> Les suspentes et rails de plomberie/électricité sont installés, mais le plaquiste n'a pas encore posé le placo.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Accompagnement ACCTHERM -->
+          <div class="bg-slate-800 text-slate-300 p-8 rounded-2xl shadow-sm relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 w-32 h-32 bg-slate-700 rounded-full opacity-50 pointer-events-none"></div>
+            <h3 class="text-xl font-bold mb-4 relative z-10 border-b border-slate-600 pb-4 text-white">L'accompagnement Mesures ACCTHERM</h3>
+            <p class="text-sm mb-4 relative z-10 font-medium text-slate-300">
+              En tant qu'opérateur agréé Qualibat 8711, ACCTHERM réalise les mesures d'infiltrométrie réglementaires.
+            </p>
+            <p class="text-sm relative z-10 font-medium text-slate-300">
+              Nous intervenons sur vos chantiers en Auvergne-Rhône-Alpes à ces deux étapes clés. Que ce soit pour un diagnostic intermédiaire à l'aide de générateurs de fumée ou pour la certification finale obligatoire, nos rapports détaillés sous 24h vous fournissent les données précises nécessaires à la conformité de votre projet.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schéma : La stratégie gagnante -->
+      <div class="mb-16 max-w-5xl">
+        <h2 class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8">
+          La stratégie gagnante pour votre permis de construire
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+          
+          <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3">1</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Test Intermédiaire (Sécurité)</h4>
+            <p class="text-xs text-slate-500 font-medium">Mise sous pression précoce. Recherche active des micro-fuites à la fumée. Repérage des oublis de scotchage. Correctifs immédiats par les artisans.</p>
+          </div>
+          
+          <div class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm">
+            <div class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3">2</div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">Second Œuvre & Finitions</h4>
+            <p class="text-xs text-slate-500 font-medium font-medium">Fermeture des cloisons, finitions, perçages finaux maîtrisés pour les prises électriques et raccordement des réseaux de ventilation (VMC).</p>
+          </div>
+          
+          <div class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md">
+            <div class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3">3</div>
+            <h4 class="font-bold text-white text-sm mb-2">Test Final (Validation)</h4>
+            <p class="text-xs text-slate-300 font-medium">Mesure officielle obligatoire RE2020. Génération du rapport Qualibat conforme. Édition de l'attestation finale pour valider votre DAACT en mairie.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Enjeu ACCTHERM -->
+      <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-5xl">
+          <h2 class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3">
+            <Icon name="lucide:shield-alert" class="w-6 h-6 text-primary-orange" />
+            L'avis de l'expert technique
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-medium">
+            Se passer du test intermédiaire sous prétexte qu'il n'est pas obligatoire est un calcul risqué. Découvrir un défaut d'étanchéité lors du test final, c'est s'exposer à des recherches complexes derrière le placo, à des reprises d'enduits coûteuses, et surtout à un blocage juridique de la réception de la maison. L'anticipation reste la clé d'un projet RE2020 réussi.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ title="Questions fréquentes sur les étapes d'infiltrométrie" faqs={comparisonFaqs} />
+
+    <!-- Contact Section -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

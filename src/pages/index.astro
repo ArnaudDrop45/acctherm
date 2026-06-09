@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Prestations from "../components/Prestations.astro";
+import FAQ from "../components/FAQ.astro";
+import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
+import Expertise from "../components/Expertise.astro";
+import Certifications from "../components/Certifications.astro";
+import Testimonials from "../components/Testimonials.astro";
+
+// Titre et description optimisés SEO
+const pageTitle = "Test Infiltrométrie & RE2020 Lyon | ACCTHERM Expert Lyon-69";
+const pageDescription =
+    "ACCTHERM, spécialiste du contrôle d'étanchéité à l'air, VMC et DPE à Lyon et en Auvergne-Rhône-Alpes. Sécurisez la conformité RE2020 de votre maison. Demandez votre devis.";
+
+// Schema pour booster le SEO local
+const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://acctherm.com/#localbusiness",
+            name: "ACCTHERM",
+            image: "https://acctherm.com/assets/acctherm-logo.webp",
+            description:
+                "Expert en infiltrométrie, contrôle VMC réglementaire Promevent et conformité RE2020 à Lyon et en Auvergne-Rhône-Alpes depuis plus de 15 ans.",
+            url: "https://acctherm.com",
+            telephone: ["+33695311758", "+33634583303"],
+            address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lyon",
+                addressRegion: "Auvergne-Rhône-Alpes",
+                addressCountry: "FR",
+            },
+            geo: {
+                "@type": "GeoCoordinates",
+                latitude: "45.764043",
+                longitude: "4.835659",
+            },
+            founder: {
+                "@type": "Person",
+                name: "Pascal Poulanges",
+            },
+            areaServed: [
+                {
+                    "@type": "AdministrativeArea",
+                    name: "Auvergne-Rhône-Alpes",
+                    sameAs: "https://www.wikidata.org/wiki/Q18247094",
+                },
+                {
+                    "@type": "AdministrativeArea",
+                    name: "Métropole de Lyon",
+                    sameAs: "https://www.wikidata.org/wiki/Q16664539",
+                },
+                {
+                    "@type": "AdministrativeArea",
+                    name: "Saint-Étienne",
+                },
+                {
+                    "@type": "AdministrativeArea",
+                    name: "Grenoble",
+                },
+                {
+                    "@type": "AdministrativeArea",
+                    name: "Clermont-Ferrand",
+                },
+            ],
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5.0",
+                reviewCount: "7",
+            },
+        },
+    ],
+};
+
+// Faq
+const homeFaqs = [
+    {
+        question:
+            "Quand faut-il réaliser le test d'infiltrométrie pour une maison neuve ?",
+        answer: "Le test d'infiltrométrie obligatoire (mesure finale) doit être réalisé à la fin des travaux, dès que la construction est totalement achevée. Cependant, nous recommandons fortement d'effectuer un test intermédiaire dès que le bâtiment est hors d'eau, hors d'air et que l'enveloppe intérieure est fermée (doublages et plafonds posés, avant la fermeture des cloisons de distribution). Cela permet de localiser et corriger les fuites d'air facilement et à moindre coût.",
+    },
+    {
+        question:
+            "Le test d'étanchéité à l'air est-il obligatoire pour une rénovation ?",
+        answer: "Bien que non systématiquement obligatoire selon les projets de rénovation classiques, il est fortement recommandé dans le cadre d'une rénovation globale énergétique performante. Il permet de s'assurer de la suppression des ponts thermiques et de valider la qualité des travaux d'isolation pour maximiser vos gains sur vos factures de chauffage.",
+    },
+    {
+        question:
+            "En quoi consiste le contrôle VMC obligatoire sous la RE2020 ?",
+        answer: "Depuis l'entrée en vigueur de la RE2020, la vérification des systèmes de ventilation mécanique est devenue obligatoire pour les maisons neuves. Ce contrôle suit le protocole réglementaire Promevent et comprend une inspection visuelle complète de l'installation (centrale, conduits, raccordements) ainsi que des mesures physiques de débit et de pression aux bouches d'insufflation et d'extraction pour assurer un renouvellement d'air sain.",
+    },
+    {
+        question:
+            "Quels documents administratifs fournissez-vous en fin de chantier ?",
+        answer: "À la suite de notre contrôle (si tout est conforme), nous vous remettrons l’attestation RE2020, à joindre à votre Déclaration Attestant l’Achèvement et la Conformité des Travaux (DAACT).",
+    },
+    {
+        question:
+            "Quel est le prix d'un test d'infiltrométrie à Lyon et en Rhône-Alpes ?",
+        answer: "Le tarif d'un test d'étanchéité à l'air dépend principalement de la surface habitable du bâtiment et de la typologie du projet (maison individuelle ou bâtiment collectif). Chez ACCTHERM, nous vous transmettons un devis personnalisé et gratuit sous 24 heures avec une garantie de réactivité locale.",
+    },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={homeSchema}>
+    <Header />
+    <main class="grow flex flex-col bg-[#f8fafc]">
+        <Hero />
+        <div class="flex flex-col gap-12 sm:gap-8 pb-12">
+            <Features />
+            <Certifications />
+            <Prestations />
+            <Expertise />
+            <FAQ
+                title="Vos questions sur l'Infiltrométrie & le Contrôle Thermique"
+                faqs={homeFaqs}
+            />
+            <Testimonials />
+            <Contact />
+        </div>
+    </main>
+    <Footer />
+</Layout>

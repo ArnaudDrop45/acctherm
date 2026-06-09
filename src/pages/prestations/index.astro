@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PrestationCards from "../../components/PrestationCards.astro";
+import FAQ from "../../components/FAQ.astro";
+import Contact from "../../components/Contact.astro"; 
+
+// Données sémantiques de la page pour le SEO
+const pageTitle = "Nos Prestations RE2020 & RT2012 Lyon | ACCTHERM";
+const pageDescription = "Découvrez nos contrôles individuels d'infiltrométrie, mesures VMC réglementaires Promevent et DPE Neuf pour valider votre attestation RE2020 à Lyon et en Rhône-Alpes.";
+
+// Schéma Service pour l'en-tête de page
+const prestationsSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Contrôles réglementaires du bâtiment et infiltrométrie",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://acctherm.com/#localbusiness"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Auvergne-Rhône-Alpes",
+    "sameAs": "https://www.wikidata.org/wiki/Q18247094"
+  }
+};
+
+// Tableau des FAQs adapté aux prestations individuelles
+const prestationsFaqs = [
+  { 
+    question: "Le contrôle des systèmes de ventilation VMC est-il obligatoire pour toutes les constructions ?", 
+    answer: "Oui, depuis l'entrée en vigueur de la RE2020, la vérification des systèmes de ventilation mécanique (VMC) est devenue obligatoire pour toutes les habitations neuves (maisons individuelles et logements collectifs). Ce contrôle suit le protocole réglementaire Promevent et doit être réalisé par un opérateur certifié Qualibat 8741 comme ACCTHERM." 
+  },
+  { 
+    question: "Quand faut-il planifier le test d'infiltrométrie final de ma maison ?", 
+    answer: "Le test d'infiltrométrie final (mesure de perméabilité à l'air obligatoire) se réalise à l'achèvement complet des travaux. Pour garantir une conformité sans stress, assurez-vous que toutes les menuiseries, les traversées de parois et les finitions soient prêtes. Nous intervenons rapidement à Lyon et dans toute la région pour délivrer votre rapport officiel." 
+  },
+  { 
+    question: "Quels sont vos délais d'intervention et d'envoi des rapports autour de Lyon ?", 
+    answer: "Grâce à notre ancrage 100% local dans la métropole de Lyon, nous pouvons planifier une intervention sous quelques jours selon les urgences de votre planning de livraison. À la suite des mesures sur site, vos rapports d'essais officiels et attestations Cerfa vous sont envoyés par email sous 24 heures maximum." 
+  },
+  { 
+    question: "Que se passe-t-il si mon bâtiment ne passe pas le test d'étanchéité à l'air ?", 
+    answer: "Si le coefficient d'infiltrométrie mesuré dépasse le seuil réglementaire, nous utilisons nos générateurs de fumée et caméras thermiques pour localiser précisément les fuites d'air en temps réel. Si les corrections peuvent être faites immédiatement par vos artisans sur place, nous réajustons les mesures. Dans le cas contraire, nous planifions une contre-visite rapide après vos travaux de reprise." 
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={prestationsSchema}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO DE LA PAGE CATALOGUE -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+      <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-10">
+        <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-4">
+          Contrôles, Audits & Attestations
+        </span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6 max-w-3xl mx-auto">
+          Toutes nos prestations de <span class="text-primary-orange">Conformité Thermique</span> à Lyon
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          Du test d'infiltrométrie obligatoire au contrôle réglementaire de vos systèmes de ventilation, ACCTHERM valide la conformité de vos chantiers RE2020 et RT2012.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. LES PRESTATIONS À LA CARTE -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight">
+          Nos interventions individuelles
+        </h2>
+        <p class="text-sm text-slate-500 font-medium mt-2">Sélectionnez la prestation dont vous avez besoin pour votre fin de chantier</p>
+      </div>
+
+      <!-- Composant de cartes des prestations de l'entreprise -->
+      <PrestationCards />
+    </section>
+
+    <!-- 3. ZONE DE RÉASSURANCE ADMINISTRATIVE (Remplace le pack combo) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"></div>
+        
+        <div class="max-w-2xl relative z-10">
+          <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Garantie Légale & Conformité</span>
+          <h2 class="text-white text-xl md:text-2xl font-black font-display uppercase tracking-tight mb-4">
+            Des rapports officiels certifiés QUALIBAT 8711 & 8741
+          </h2>
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed font-medium">
+            Chaque contrôle fait l'objet d'un rapport réglementaire strict, indispensable pour l'obtention de votre attestation de fin de travaux (Cerfa) et le dépôt de votre DAACT en mairie.
+          </p>
+        </div>
+        
+        <div class="shrink-0 relative z-10 w-full md:w-auto">
+          <a href="#contact" class="inline-block w-full md:w-auto bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all text-center cursor-pointer shadow-lg ">
+            Demander un chiffrage immédiat
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ -->
+    <FAQ title="Des réponses techniques pour sécuriser vos fins de chantiers" faqs={prestationsFaqs} />
+
+    <!-- 5. CONTACT -->
+    <Contact />
+
+  </main>
+
+  <Footer />
+</Layout>

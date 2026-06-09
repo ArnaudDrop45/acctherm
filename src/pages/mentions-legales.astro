@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "Mentions Légales | ACCTHERM";
+const pageDescription =
+  "Mentions légales du site internet d'ACCTHERM, expert en contrôle d'étanchéité à l'air, infiltrométrie et VMC à Lyon.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main class="grow bg-[#f8fafc]">
+    <!-- En-tête de la page -->
+    <section
+      class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4 text-center"
+      >
+        <span
+          class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-4"
+        >
+          Réglementation
+        </span>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-4"
+        >
+          Mentions <span class="text-primary-orange">Légales</span>
+        </h1>
+        <p class="text-sm text-slate-500 max-w-xl mx-auto font-medium">
+          Conformément aux dispositions de l'article 6 de la loi n° 2004-575 du
+          21 juin 2004 pour la confiance dans l'économie numérique.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contenu des mentions légales -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div
+        class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm prose prose-slate max-w-none"
+      >
+        <h2
+          class="text-xl font-bold text-primary-navy mb-4 uppercase tracking-tight"
+        >
+          1. Éditeur du Site
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          Le présent site internet est édité et exploité par la société
+          ACCTHERM, entreprise spécialisée dans le contrôle énergétique des
+          bâtiments.<br />
+          - Responsables Légaux : Pierre POULANGES, Tom POULANGES<br />
+          - Siège Social : 19 COURS GAMBETTA, 69003 LYON<br />
+          - Adresses Email : <a
+            href="mailto:pierre@acctherm.com"
+            class="text-primary-orange hover:underline">pierre@acctherm.com</a
+          > et <a
+            href="mailto:tom@acctherm.com"
+            class="text-primary-orange hover:underline">tom@acctherm.com</a
+          ><br />
+          - Numéro de SIRET : 538 055 385 00024<br />
+          - Activités : Activités d'architecture et d'ingénierie ; activités de contrôle
+          et analyses techniques
+        </p>
+
+        <h2
+          class="text-xl font-bold text-primary-navy mb-4 uppercase tracking-tight"
+        >
+          2. Directeur de la Publication
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          Le directeur de la publication du présent site internet est Tom
+          POULANGES en sa qualité de responsable d'établissement.
+        </p>
+
+        <h2
+          class="text-xl font-bold text-primary-navy mb-4 uppercase tracking-tight"
+        >
+          3. Hébergement du Site
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          Ce site internet est hébergé de manière sécurisée par :<br />
+          - Hébergeur : Vercel Inc.<br />
+          - Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br />
+          - Site Internet : <a
+            href="https://vercel.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-orange hover:underline">vercel.com</a
+          >
+        </p>
+
+        <h2
+          class="text-xl font-bold text-primary-navy mb-4 uppercase tracking-tight"
+        >
+          4. Propriété Intellectuelle
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          L'ensemble des contenus présents sur ce site (textes, images, logos,
+          structure graphique, codes) constitue des œuvres protégées par le
+          droit d'auteur. Toute reproduction, représentation ou diffusion, en
+          tout ou en partie, sans l'accord écrit et préalable de la société
+          ACCTHERM est strictement interdite et constituerait une contrefaçon
+          sanctionnée par le Code de la propriété intellectuelle.
+        </p>
+
+        <h2
+          class="text-xl font-bold text-primary-navy mb-4 uppercase tracking-tight"
+        >
+          5. Contact
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed mb-0">
+          Pour toute question ou demande d'information concernant les contenus
+          du site, vous pouvez nous écrire directement par e-mail à : <a
+            href="mailto:pierre@acctherm.com"
+            class="text-primary-orange hover:underline">pierre@acctherm.com</a
+          > et <a
+            href="mailto:tom@acctherm.com"
+            class="text-primary-orange hover:underline">tom@acctherm.com</a
+          >.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

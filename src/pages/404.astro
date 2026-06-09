@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Icon } from 'astro-icon/components';
+
+const pageTitle = "Test Infiltrométrie Intermédiaire Lyon | Porte Soufflante RE2020";
+const pageDescription = "Sécurisez votre chantier avant la fermeture des cloisons. Test de la porte soufflante (blowerdoor) hors d'eau / hors d'air à Lyon et Rhône-Alpes. Rapport rapide.";
+
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <main class="grow bg-[#f8fafc]">
+    
+    <!-- 1. HERO SECTION SÉMANTIQUE -->
+    <section class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16">
+        <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40 pointer-events-none"></div>
+    
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Badge Technique Clin d'œil -->
+      <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
+        Erreur 404
+      </span>
+      
+      <!-- Gros titre 404 -->
+      <h1 class="text-7xl sm:text-8xl md:text-9xl font-black font-display text-primary-navy leading-none mb-6 tracking-tight">
+        4<span class="text-primary-orange">0</span>4
+      </h1>
+      
+      <!-- Message thématique -->
+      <h2 class="text-xl sm:text-2xl font-extrabold text-primary-navy uppercase tracking-tight mb-4">
+        Oups ! Cette page semble avoir une fuite...
+      </h2>
+      
+      <p class="text-base text-slate-600 mb-10 leading-relaxed font-medium max-w-lg mx-auto">
+        L'adresse que vous cherchez n'existe pas ou a été déplacée.
+      </p>
+      
+      <!-- Encart d'aide / Liens de secours -->
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm max-w-xl mx-auto mb-10 text-left">
+        <h3 class="text-sm font-bold text-primary-navy uppercase tracking-wider mb-4 flex items-center gap-2">
+          <Icon name="lucide:sliders" class="text-primary-orange w-4 h-4" /> Que faire maintenant ?
+        </h3>
+        <ul class="space-y-4 text-xs md:text-sm font-semibold text-slate-600">
+          <li class="flex items-start gap-3">
+            <Icon name="lucide:shield-check" class="text-primary-orange w-5 h-5 shrink-0 mt-0.5" />
+            <span>Vérifiez l'orthographe de l'URL dans la barre de recherche.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="lucide:shield-check" class="text-primary-orange w-5 h-5 shrink-0 mt-0.5" />
+            <span>Retournez sur notre page d'accueil pour reprendre la navigation.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Boutons d'action -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/" class="w-full sm:w-auto bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer flex items-center justify-center gap-2">
+          <Icon name="lucide:home" class="w-4 h-4" /> Retourner à l'accueil
+        </a>
+        <a href="/prestations" class="w-full sm:w-auto border-2 border-primary-navy text-primary-navy font-bold py-4 px-8 rounded-xl text-sm hover:bg-primary-navy hover:text-white transition-all text-center cursor-pointer">
+          Découvrir nos prestations
+        </a>
+      </div>
+
+    </div>
+      
+    </section>
+
+
+  </main>
+
+  <Footer />
+</Layout>

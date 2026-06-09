@@ -1,0 +1,422 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Contact from "../../components/Contact.astro";
+import FAQ from "../../components/FAQ.astro";
+import { Icon } from "astro-icon/components";
+
+// Données sémantiques de la page pour le SEO
+const pageTitle =
+  "Recherche de Fuites & Ponts Thermiques | Guide Technique | ACCTHERM";
+const pageDescription =
+  "Comment détecter les fuites d'air et ponts thermiques ? Découvrez le rôle de la thermographie et des fumigènes pour réussir votre test d'infiltrométrie RE2020.";
+
+// Schéma de type "Article" pour le SEO
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id":
+    "https://acctherm.com/expertise/recherche-fuites-thermographie/#article",
+  headline:
+    "Recherche de Fuites & Ponts Thermiques : Méthodes et Enjeux RE2020",
+  description: pageDescription,
+  author: {
+    "@type": "Organization",
+    name: "ACCTHERM",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "ACCTHERM",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://acctherm.com/logo.png",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://acctherm.com/expertise/recherche-fuites-thermographie",
+  },
+};
+
+const pillars = [
+  {
+    title: "Thermographie Infrarouge",
+    desc: "Visualisation non invasive des flux de chaleur. Idéale pour repérer les discontinuités d'isolants, les défauts structurels et les ponts thermiques invisibles à l'œil nu lors des phases clés du chantier.",
+    icon: "lucide:camera",
+  },
+  {
+    title: "Générateurs de Fumée",
+    desc: "Mise en évidence physique des déplacements d'air. Couplée à une mise en surpression ou dépression du bâtiment, la fumée s'échappe par les moindres failles structurelles de l'enveloppe.",
+    icon: "lucide:wind",
+  },
+  {
+    title: "Anémométrie de Précision",
+    desc: "Mesure de la vitesse d'écoulement de l'air au droit d'un défaut localisé. Permet de caractériser l'importance d'une infiltration d'air parasite avant sa correction.",
+    icon: "lucide:activity",
+  },
+];
+
+const indicators = [
+  {
+    name: "Liaisons Dalles / Façades",
+    desc: "Faiblesses courantes au niveau des jonctions de planchers bas, hauts et intermédiaires.",
+  },
+  {
+    name: "Menuiseries Extérieures",
+    desc: "Défauts de calfeutrement périphérique, liaisons aux seuils et coffres de volets roulants mal isolés.",
+  },
+  {
+    name: "Traversées de Parois",
+    desc: "Infiltrations au droit des réseaux électriques (prises, interrupteurs) et des canalisations de plomberie.",
+  },
+  {
+    name: "Raccords de Pare-Vapeur",
+    desc: "Manques d'adhésif ou déchirures de la membrane d'étanchéité en toiture et combles.",
+  },
+  {
+    name: "Points Singuliers",
+    desc: "Angles sortants de maçonnerie, linteaux de baies vitrées et refends non désolidarisés.",
+  },
+];
+
+// Données FAQ réorientées conseil / SEO
+const searchFaqs = [
+  {
+    question:
+      "ACCTHERM propose-t-il la recherche de fuites comme prestation isolée ?",
+    answer:
+      "Non. En tant qu'organisme de contrôle agréé Qualibat, ACCTHERM intervient pour réaliser vos tests réglementaires d'infiltrométrie (intermédiaires et finaux). La localisation des fuites par infiltrométrie fait partie intégrante de nos processus de test pour vous aider à identifier les actions correctives, mais nous ne vendons pas de prestation de diagnostic thermique ou de recherche de fuite indépendante.",
+  },
+  {
+    question:
+      "Quand est-il le plus judicieux de traquer les fuites d'air sur un chantier ?",
+    answer:
+      "Le moment idéal se situe lors du test d'infiltrométrie intermédiaire (hors d'eau / hors d'air). C'est à cette étape que l'enveloppe thermique est accessible : si des fuites sont détectées à la fumée ou à la caméra, vos artisans peuvent les colmater immédiatement avant la fermeture des cloisons.",
+  },
+  {
+    question:
+      "Quelles sont les conditions idéales pour utiliser une caméra thermique ?",
+    answer:
+      "L'imagerie thermique requiert un écart de température minimal (idéalement supérieur ou égal à 10°C) entre l'intérieur du bâtiment et l'extérieur. C'est pourquoi cette méthode est principalement efficace en période hivernale, automnale ou tôt le matin.",
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} schema={articleSchema}>
+  <Header />
+
+  <main class="grow bg-[#f8fafc]">
+    <!-- En-tête de l'article -->
+    <section
+      class="w-full bg-white border-b border-slate-100 relative overflow-hidden pt-12 pb-16"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[16px_16px] opacity-40 pointer-events-none"
+      >
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-4">
+        <!-- Fil d'ariane -->
+        <a
+          href="/expertise"
+          class="inline-flex items-center text-sm font-bold text-slate-500 hover:text-primary-orange transition-colors mb-8 group"
+        >
+          <Icon
+            name="lucide:arrow-left"
+            class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+          />
+          Retour au Centre de Ressources
+        </a>
+
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg"
+            >
+              Dossier Technique
+            </span>
+            <span class="text-sm font-medium text-slate-400"
+              >Temps de lecture : 6 min</span
+            >
+          </div>
+
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-tight mb-6"
+          >
+            Recherche de Fuites & <span class="text-primary-orange"
+              >Ponts Thermiques</span
+            >
+          </h1>
+          <p
+            class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium border-l-4 border-primary-orange pl-4"
+          >
+            Comprendre les méthodes de localisation des infiltrations d'air et
+            des faiblesses thermiques pour sécuriser la conformité RE2020 de
+            votre projet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corps de l'article -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <!-- Introduction -->
+      <div class="prose prose-lg prose-slate max-w-5xl mb-16">
+        <h2
+          class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6"
+        >
+          DÉCELER LES FAIBLESSES DE L'ENVELOPPE POUR RÉUSSIR LA RE2020
+        </h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Les fuites d'air parasites et les ponts thermiques non maîtrisés
+          peuvent représenter une part importante des déperditions énergétiques
+          d'un bâtiment neuf. Dans le cadre de la RE2020, la perméabilité à
+          l'air de l'enveloppe fait l'objet d'une obligation de résultat
+          stricte, validée par un test d'infiltrométrie final.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Pour éviter les contre-visites et garantir l'obtention de
+          l'attestation de fin de travaux, il est fondamental de comprendre
+          comment sont localisées ces anomalies. L'utilisation d'outils de
+          diagnostic spécifiques permet de corriger les défauts au moment
+          opportun du chantier.
+        </p>
+      </div>
+
+      <!-- Les 3 Outils / Piliers -->
+      <h2
+        class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8"
+      >
+        Les outils techniques de diagnostic de l'enveloppe
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {
+          pillars.map((pillar) => (
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+              <div class="bg-orange-100 text-primary-orange w-12 h-12 rounded-xl flex items-center justify-center relative z-10 shrink-0">
+                <Icon name={pillar.icon} class="w-6 h-6" />
+              </div>
+              <h3 class="font-bold text-primary-navy text-lg leading-tight relative z-10">
+                {pillar.title}
+              </h3>
+              <p class="text-sm text-slate-600 font-medium leading-relaxed relative z-10">
+                {pillar.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Les Indicateurs Clés -->
+      <div
+        class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 mb-16"
+      >
+        <h2
+          class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6 flex items-center gap-3"
+        >
+          <Icon
+            name="lucide:check-circle"
+            class="w-6 h-6 text-primary-orange"
+          />
+          Les 5 points critiques majeurs sur le chantier
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            indicators.map((ind) => (
+              <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm min-h-[72px]">
+                <div class="text-primary-navy font-black text-lg min-w-[120px] md:min-w-[140px] shrink-0 leading-none">
+                  {ind.name}
+                </div>
+                <div class="text-slate-600 font-medium text-sm md:text-base leading-snug">
+                  {ind.desc}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Cadre Technique -->
+      <div class="mb-16 max-w-5xl">
+        <h2
+          class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8"
+        >
+          L'INFILTROMÉTRIE COMME OUTIL DE DIAGNOSTIC
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Bâtiments concernés -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm"
+          >
+            <h3
+              class="text-xl font-bold text-primary-navy mb-4 border-b border-slate-100 pb-4"
+            >
+              Quand effectuer les vérifications ?
+            </h3>
+            <ul class="space-y-3 text-slate-600 font-medium">
+              <li class="flex items-start gap-2">
+                <div
+                  class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"
+                >
+                </div>
+                <span
+                  ><strong>En phase intermédiaire :</strong> Idéal avant la pose des
+                  plaques de plâtre pour localiser les fuites de manière précoce et
+                  appliquer les correctifs à moindre coût.</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <div
+                  class="w-1.5 h-1.5 rounded-full bg-primary-orange shrink-0 mt-2"
+                >
+                </div>
+                <span
+                  ><strong>Lors de la réception finale :</strong> Pour quantifier
+                  officiellement le débit de fuite total et s'assurer du respect du
+                  seuil de 0.60 m3 en maison individuelle.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Rôle de l'opérateur -->
+          <div
+            class="bg-slate-800 text-slate-300 p-8 rounded-2xl shadow-sm relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-4 -top-4 w-32 h-32 bg-slate-700 rounded-full opacity-50 pointer-events-none"
+            >
+            </div>
+            <h3
+              class="text-xl font-bold mb-4 relative z-10 border-b border-slate-600 pb-4 text-white"
+            >
+              L'accompagnement ACCTHERM
+            </h3>
+            <p class="text-sm mb-4 relative z-10 font-medium text-slate-300">
+              Lors de nos interventions réglementaires d'infiltrométrie (tests
+              obligatoires ou intermédiaires), nos techniciens mettent en œuvre
+              leur expertise pour mettre le bâtiment sous pression.
+            </p>
+            <p class="text-sm relative z-10 font-medium text-slate-300">
+              Si des anomalies sont repérées, elles sont relevées et intégrées
+              de manière pédagogique dans nos rapports afin de guider vos
+              artisans vers la mise en conformité de l'enveloppe.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schéma : Le cycle de la conformité -->
+      <div class="mb-16 max-w-5xl">
+        <h2
+          class="text-xl md:text-2xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-8"
+        >
+          Comment se déroule la détection lors d'un test ?
+        </h2>
+        <div class="flex flex-col md:flex-row gap-4 relative">
+          <!-- Ligne de connexion (visible sur desktop) -->
+          <div
+            class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"
+          >
+          </div>
+
+          <div
+            class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 relative z-10 text-center shadow-sm"
+          >
+            <div
+              class="w-8 h-8 bg-slate-100 text-slate-500 font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              1
+            </div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">
+              Mise sous pression
+            </h4>
+            <p class="text-xs text-slate-500 font-medium">
+              Installation de la porte soufflante (Blowerdoor) pour créer une
+              différence de pression artificielle entre l'intérieur et
+              l'extérieur du bâtiment.
+            </p>
+          </div>
+
+          <div
+            class="flex-1 bg-white border-2 border-primary-orange/30 rounded-2xl p-6 relative z-10 text-center shadow-sm"
+          >
+            <div
+              class="w-8 h-8 bg-orange-100 text-primary-orange font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              2
+            </div>
+            <h4 class="font-bold text-primary-navy text-sm mb-2">
+              Recherche des passages d'air
+            </h4>
+            <p class="text-xs text-slate-500 font-medium">
+              Utilisation de générateurs de fumée ou de l'imagerie infrarouge au
+              droit des points singuliers pour identifier visuellement les
+              infiltrations d'air parasite.
+            </p>
+          </div>
+
+          <div
+            class="flex-1 bg-primary-navy border border-primary-navy rounded-2xl p-6 relative z-10 text-center shadow-md"
+          >
+            <div
+              class="w-8 h-8 bg-primary-orange text-white font-bold rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              3
+            </div>
+            <h4 class="font-bold text-white text-sm mb-2">
+              Rapport réglementaire
+            </h4>
+            <p class="text-xs text-slate-300 font-medium">
+              Restitution des résultats de perméabilité globaux et indication
+              des zones nécessitant une attention ou un ajustement par les corps
+              d'état.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Enjeu ACCTHERM -->
+      <div
+        class="bg-primary-navy text-white rounded-3xl p-8 md:p-12 shadow-lg relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[24px_24px] opacity-5 pointer-events-none"
+        >
+        </div>
+        <div class="relative z-10 max-w-5xl">
+          <h2
+            class="text-xl md:text-2xl font-black font-display text-white uppercase tracking-tight mb-4 flex items-center gap-3"
+          >
+            <Icon
+              name="lucide:alert-triangle"
+              class="w-6 h-6 text-primary-orange"
+            />
+            Sécuriser son projet en amont
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-medium">
+            Anticiper les problématiques d'étanchéité à l'air reste la stratégie
+            la plus efficace pour valider la RE2020 sans stress. La réalisation
+            d'un test d'infiltrométrie intermédiaire par un opérateur agréé
+            permet de valider la qualité de pose de l'isolation et des
+            membranes, évitant ainsi des désordres structurels lourds à corriger
+            une fois les finitions achevées.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <FAQ
+      title="Questions fréquentes sur la détection des faiblesses thermiques"
+      faqs={searchFaqs}
+    />
+
+    <!-- Contact Section -->
+    <Contact />
+  </main>
+
+  <Footer />
+</Layout>
