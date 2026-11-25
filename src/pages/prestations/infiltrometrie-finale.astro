@@ -7,8 +7,8 @@ import Contact from "../../components/Contact.astro";
 import { Icon } from 'astro-icon/components';
 
 // Métadonnées SEO 
-const pageTitle = "Infiltrométrie Finale & Attestation RE2020 Lyon | Cerfa Fin de Chantier";
-const pageDescription = "Test de perméabilité à l'air final obligatoire à Lyon et Rhône-Alpes. Obtenez votre attestation Cerfa RE2020 sous 24h pour valider votre fin de travaux.";
+const pageTitle = "Test à l'air & Infiltrométrie Finale RE2020 Lyon | ACCTHERM";
+const pageDescription = "Test à l'air obligatoire (infiltrométrie) RE2020 et RT2012 à Lyon et en Rhône-Alpes. Opérateur Qualibat 8711, attestation de fin de chantier sous 24h.";
 
 // Schéma 
 const serviceSchema = {
@@ -17,6 +17,7 @@ const serviceSchema = {
     {
       "@type": "Service",
       "serviceType": "Test d'infiltrométrie final obligatoire RE2020",
+      "alternateName": ["Test à l'air", "Test d'étanchéité à l'air", "Test de perméabilité à l'air"],
       "provider": {
         "@type": "LocalBusiness",
         "@id": "https://acctherm.com/#localbusiness"
@@ -60,6 +61,18 @@ const infiltroFinalFaqs = [
   {
     question: "Mon permis de construire a été déposé sous la RT2012. Réalisez-vous toujours ces tests ?",
     answer: "Absolument. Bien que la RE2020 soit la norme en vigueur pour les constructions neuves actuelles, ACCTHERM continue de réaliser les tests d'infiltrométrie finale sous la norme RT2012 pour tous les projets retardataires, les extensions ou en cas de régularisation de dossiers administratifs."
+  },
+  {
+    question: "Qu'est-ce que le test à l'air d'une maison neuve ?",
+    answer: "Le « test à l'air » est le nom courant du test d'infiltrométrie. Il mesure la quantité d'air qui s'infiltre involontairement à travers l'enveloppe de la maison (jonctions de menuiseries, prises électriques, trappes, passages de gaines). Une porte soufflante installée sur une ouverture met le logement en dépression, puis un logiciel calcule le débit de fuite rapporté à la surface des parois (indicateur Q4Pa-surf). C'est ce résultat qui permet de délivrer l'attestation de fin de chantier RE2020."
+  },
+  {
+    question: "Combien de temps dure un test à l'air et faut-il être présent ?",
+    answer: "Pour une maison individuelle, comptez en général entre 1 h et 2 h sur place, selon la surface et le nombre de pièces. La présence du propriétaire ou du constructeur est conseillée pour ouvrir le logement et, en cas de résultat limite, visualiser directement les fuites avec notre technicien. Le rapport officiel et l'attestation vous sont ensuite envoyés sous 24 heures."
+  },
+  {
+    question: "Test à l'air, test d'étanchéité ou de perméabilité à l'air : quelle différence ?",
+    answer: "Aucune sur le fond : ces expressions désignent la même mesure réglementaire. « Test d'infiltrométrie » et « mesure de perméabilité à l'air » sont les termes techniques employés dans les rapports et la réglementation ; « test à l'air » et « test d'étanchéité à l'air » sont les appellations courantes sur les chantiers et chez les particuliers. Dans tous les cas, l'essai doit être réalisé par un opérateur autorisé (Qualibat 8711) pour être valable."
   }
 ];
 ---
@@ -88,13 +101,13 @@ const infiltroFinalFaqs = [
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-7 text-left">
             <span class="inline-block bg-orange-100 text-primary-orange text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg mb-6">
-              Contrôle Réglementaire Obligatoire • Certification Qualibat
+              Infiltrométrie Finale • Contrôle Obligatoire • Qualibat
             </span>
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display text-primary-navy leading-[1.1] mb-6 tracking-tight">
-              Infiltrométrie Finale & Attestation RE2020 <span class="text-primary-orange">à Lyon</span>
+              Test à l'air final & Attestation RE2020 <span class="text-primary-orange">à Lyon</span>
             </h1>
             <p class="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-2xl">
-              Validez la conformité légale de votre bâtiment sans perdre une seule journée. Notre mesure de <strong class="text-primary-navy font-bold">perméabilité à l'air finale obligatoire</strong> vous garantit un rapport conforme et la délivrance de votre attestation Cerfa de fin de travaux sous 24h pour un dépôt serein en mairie.
+              Validez la conformité légale de votre bâtiment sans perdre une seule journée. Notre mesure de <strong class="text-primary-navy font-bold">perméabilité à l'air finale obligatoire</strong> (le fameux « test à l'air ») vous garantit un rapport conforme et la délivrance de votre attestation Cerfa de fin de travaux sous 24h pour un dépôt serein en mairie.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <a href="#contact" class="bg-primary-orange hover:bg-primary-orange-hover text-white font-bold py-4 px-8 rounded-xl text-sm transition-all shadow-lg shadow-orange-200 text-center cursor-pointer flex items-center justify-center gap-2">
@@ -177,6 +190,56 @@ const infiltroFinalFaqs = [
           <p class="text-sm text-slate-500 leading-relaxed font-medium">
             Si le seuil de perméabilité RE2020 n'est pas atteint, nous ne vous laissons pas tomber. Nous localisons instantanément les fuites d'air défectueuses pour vous permettre de réaliser des correctifs précis.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 bis. SECTION PÉDAGOGIQUE : Test à l'air = test d'infiltrométrie -->
+    <section id="test-a-l-air" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 scroll-mt-6">
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-sm">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs font-bold text-primary-orange uppercase tracking-widest block mb-2">Bien comprendre</span>
+          <h2 class="text-2xl md:text-3xl font-extrabold font-display text-primary-navy uppercase tracking-tight mb-6">
+            Test à l'air, test d'infiltrométrie : de quoi parle-t-on ?
+          </h2>
+          <div class="text-sm md:text-base text-slate-600 leading-relaxed font-medium space-y-4">
+            <p>
+              Sur les chantiers, on parle souvent de <strong class="text-primary-navy font-bold">« test à l'air »</strong>. Il s'agit en réalité du <strong class="text-primary-navy font-bold">test d'infiltrométrie</strong>, aussi appelé test d'étanchéité à l'air ou mesure de perméabilité à l'air : quatre noms pour un seul et même essai réalisé à l'aide d'une porte soufflante.
+            </p>
+            <p>
+              Obligatoire pour toutes les maisons individuelles neuves depuis la RT2012 et maintenu par la RE2020, il vérifie que le débit de fuite de l'enveloppe ne dépasse pas le seuil réglementaire, soit un Q4Pa-surf de 0,60 m³/(h.m²) en maison individuelle. Sans ce résultat, l'attestation de fin de travaux ne peut pas être délivrée.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-4">
+              <Icon name="lucide:wind" class="w-5 h-5" />
+            </div>
+            <h3 class="text-base font-bold text-primary-navy mb-2">Ce que mesure le test à l'air</h3>
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+              Le volume d'air parasite qui traverse les parois, menuiseries et réseaux lorsque la maison est mise en dépression. Plus il est faible, meilleure est l'isolation réelle du logement.
+            </p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-4">
+              <Icon name="lucide:user-check" class="w-5 h-5" />
+            </div>
+            <h3 class="text-base font-bold text-primary-navy mb-2">Qui doit le faire réaliser ?</h3>
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+              Le maître d'ouvrage : particulier, constructeur ou promoteur. Le test doit être confié à un opérateur autorisé, indépendant des entreprises ayant réalisé les travaux, comme ACCTHERM (Qualibat 8711).
+            </p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 text-primary-orange flex items-center justify-center mb-4">
+              <Icon name="lucide:clock" class="w-5 h-5" />
+            </div>
+            <h3 class="text-base font-bold text-primary-navy mb-2">Combien de temps dure-t-il ?</h3>
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+              Environ 1 à 2 heures sur place pour une maison individuelle, préparation comprise. Pour éviter une contre-visite, suivez notre <a href="/expertise/checklist-preparer-test-etancheite" class="text-primary-orange font-semibold hover:underline">checklist de préparation au test d'étanchéité</a>.
+            </p>
+          </div>
         </div>
       </div>
     </section>

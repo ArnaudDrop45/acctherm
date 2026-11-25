@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 
-const { title, description, schema, image = '/favicon.svg' } = Astro.props;
+const { title, description, schema, image = '/favicon.svg', noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://acctherm.com');
 const ogImage = new URL(image, Astro.site || 'https://acctherm.com');
 ---
@@ -14,6 +14,7 @@ const ogImage = new URL(image, Astro.site || 'https://acctherm.com');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
